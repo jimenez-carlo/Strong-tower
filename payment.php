@@ -60,7 +60,7 @@ if(isset($_GET['rid'])){
 					<textarea class="form-control" name="remarks"></textarea>
 				</div>
 				<div class="form-group">
-					<button class="btn btn-primary">Save Payment</button>
+					<button class="btn btn-danger">Save Payment</button>
 				</div>
 			</form>
 		</div>

@@ -64,6 +64,8 @@ if (isset($_GET['id'])) {
 	$('#manage-member').submit(function(e) {
 		e.preventDefault()
 		start_load()
+
+
 		$.ajax({
 			url: 'ajax.php?action=save_member',
 			method: 'POST',
@@ -75,8 +77,10 @@ if (isset($_GET['id'])) {
 						location.reload()
 					}, 1000)
 				} else if (resp == 2) {
-					$('#msg').html('<div class="alert alert-danger">ID No already existed.</div>')
-					end_load();
+					alert_toast("Data successfully saved.", 'success')
+					setTimeout(function() {
+						location.reload()
+					}, 1000)
 				}
 			}
 		})

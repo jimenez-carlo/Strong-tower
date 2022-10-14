@@ -46,7 +46,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card">
-                                <div class="card-body bg-success">
+                                <div class="card-body bg-danger">
                                     <div class="card-body text-white">
                                         <span class="float-right summary_icon"><i class="fa fa-users"></i></span>
                                         <h4><b>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card">
-                                <div class="card-body bg-success">
+                                <div class="card-body bg-danger">
                                     <div class="card-body text-white">
                                         <span class="float-right summary_icon"><i class="fa fa-th-list"></i></span>
                                         <h4><b>
@@ -72,7 +72,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card">
-                                <div class="card-body bg-success">
+                                <div class="card-body bg-danger">
                                     <div class="card-body text-white">
                                         <span class="float-right summary_icon"><i class="fa fa-list"></i></span>
                                         <h4><b>

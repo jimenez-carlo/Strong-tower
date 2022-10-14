@@ -1638,7 +1638,7 @@ a.nav-item {
 }
 a.nav-item:hover, .nav-item.active {
     background-color: #000000ad;
-    color: #28a745;
+    color: #dc3545!important;
 }
 main#view-panel{
   margin-left: 250px; 

@@ -29,7 +29,7 @@
 						<b>Member List</b>
 						<span class="">
 
-							<button class="btn btn-success btn-block btn-sm col-sm-2 float-right" type="button" id="new_member">
+							<button class="btn btn-danger btn-block btn-sm col-sm-2 float-right" type="button" id="new_member">
 					<i class="fa fa-plus"></i> New</button>
 				</span>
 					</div>

@@ -6,7 +6,7 @@
 	
 	<div class="row">
 	<div class="col-lg-12">
-			<button class="btn btn-success float-right btn-sm" id="new_user"><i class="fa fa-plus"></i> New user</button>
+			<button class="btn btn-danger float-right btn-sm" id="new_user"><i class="fa fa-plus"></i> New user</button>
 	</div>
 	</div>
 	<br>
@@ -48,8 +48,8 @@
 				 	<td>
 				 		<center>
 								<div class="btn-group">
-								  <button type="button" class="btn btn-success">Action</button>
-								  <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								  <button type="button" class="btn btn-danger">Action</button>
+								  <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								    <span class="sr-only">Toggle Dropdown</span>
 								  </button>
 								  <div class="dropdown-menu">

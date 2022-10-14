@@ -12,7 +12,7 @@
 				<div class="card">
 					<div class="card-header">
 						<b>Session Schedules</b>
-						<span class="float:right"><button class="btn btn-success btn-block btn-sm col-sm-2 float-right"  id="new_schedule">
+						<span class="float:right"><button class="btn btn-danger btn-block btn-sm col-sm-2 float-right"  id="new_schedule">
 					<i class="fa fa-plus"></i> New Entry
 				</button></span>
 					</div>

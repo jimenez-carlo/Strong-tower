@@ -302,7 +302,9 @@ class Action
 			$this->db->query("UPDATE members set member_id = '$member_id', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', gender ='$gender',`address` ='$address' where id = $id ");
 			return 1;
 		} else {
-			$this->db->query("INSERT INTO members set (member_id,firstname,middlename,lastname,gender,`address`)VALUES('$member_id','$firstname', '$middlename','$lastname','$gender',$address')");
+
+			// echo "INSERT INTO members set (member_id,firstname,middlename,lastname,gender,`address`)VALUES('$member_id','$firstname', '$middlename','$lastname','$gender','$address')";
+			$this->db->query("INSERT INTO members (member_id,firstname,middlename,lastname,gender,`address`)VALUES('$member_id','$firstname', '$middlename','$lastname','$gender','$address')");
 			return 2;
 			// Insert
 		}
