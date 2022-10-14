@@ -1,39 +1,39 @@
-<?php include('db_connect.php');?>
+<?php include('db_connect.php'); ?>
 
 <div class="container-fluid">
-	
+
 	<div class="col-lg-12">
 		<div class="row">
 			<!-- FORM Panel -->
 			<div class="col-md-4">
-			<form action="" id="manage-plan">
-				<div class="card">
-					<div class="card-header">
-						    Plan Form
-				  	</div>
-					<div class="card-body">
+				<form action="" id="manage-plan">
+					<div class="card">
+						<div class="card-header">
+							Plan Form
+						</div>
+						<div class="card-body">
 							<input type="hidden" name="id">
 							<div class="form-group">
 								<label class="control-label">Plan (months)</label>
-								<input type="number" class="form-control" min="1" name="plan" >
+								<input type="number" class="form-control" min="1" name="plan">
 							</div>
 							<div class="form-group">
 								<label class="control-label">Amount</label>
 								<input type="number" class="form-control" step="any" name="amount">
 							</div>
-							
-					</div>
-							
-					<div class="card-footer">
-						<div class="row">
-							<div class="col-md-12">
-								<button class="btn btn-md btn-success col-sm-3 offset-md-3"> Save</button>
-								<button class="btn btn-md btn-secondary col-sm-3" type="button" onclick="_reset()"> Cancel</button>
+
+						</div>
+
+						<div class="card-footer">
+							<div class="row">
+								<div class="col-md-12">
+									<button class="btn btn-md btn-success col-sm-3 offset-md-3"> Save</button>
+									<button class="btn btn-md btn-secondary col-sm-3" type="button" onclick="_reset()"> Cancel</button>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</form>
+				</form>
 			</div>
 			<!-- FORM Panel -->
 
@@ -60,24 +60,24 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php 
+								<?php
 								$i = 1;
 								$plan = $conn->query("SELECT * FROM plans order by id asc");
-								while($row=$plan->fetch_assoc()):
+								while ($row = $plan->fetch_assoc()) :
 								?>
-								<tr>
-									<td class="text-center"><?php echo $i++ ?></td>
-									<td class="">
-										<p><b><?php echo $row['plan'] ?></b> month/s</p>
-									</td>
-									<td class="text-right">
-										<b><?php echo number_format($row['amount'],2) ?></b>
-									</td>
-									<td class="text-center">
-										<button class="btn btn-md btn-outline-success edit_plan" type="button" data-id="<?php echo $row['id'] ?>" data-plan="<?php echo $row['plan'] ?>" data-description="<?php echo $row['description'] ?>" data-amount="<?php echo $row['amount'] ?>" >Edit</button>
-										<button class="btn btn-md btn-outline-danger delete_plan" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
-									</td>
-								</tr>
+									<tr>
+										<td class="text-center"><?php echo $i++ ?></td>
+										<td class="">
+											<p><b><?php echo $row['plan'] ?></b> month/s</p>
+										</td>
+										<td class="text-right">
+											<b><?php echo number_format($row['amount'], 2) ?></b>
+										</td>
+										<td class="text-center">
+											<button class="btn btn-md btn-outline-success edit_plan" type="button" data-id="<?php echo $row['id'] ?>" data-plan="<?php echo $row['plan'] ?>" data-amount="<?php echo $row['amount'] ?>">Edit</button>
+											<button class="btn btn-md btn-outline-danger delete_plan" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
+										</td>
+									</tr>
 								<?php endwhile; ?>
 							</tbody>
 						</table>
@@ -86,50 +86,48 @@
 			</div>
 			<!-- Table Panel -->
 		</div>
-	</div>	
+	</div>
 
 </div>
 <style>
-	
-	td{
+	td {
 		vertical-align: middle !important;
 	}
 </style>
 <script>
-	function _reset(){
+	function _reset() {
 		$('#manage-plan').get(0).reset()
 		$('#manage-plan input,#manage-plan textarea').val('')
 	}
-	$('#manage-plan').submit(function(e){
+	$('#manage-plan').submit(function(e) {
 		e.preventDefault()
 		start_load()
 		$.ajax({
-			url:'ajax.php?action=save_plan',
+			url: 'ajax.php?action=save_plan',
 			data: new FormData($(this)[0]),
-		    cache: false,
-		    contentType: false,
-		    processData: false,
-		    method: 'POST',
-		    type: 'POST',
-			success:function(resp){
-				if(resp==1){
-					alert_toast("Data successfully added",'success')
-					setTimeout(function(){
+			cache: false,
+			contentType: false,
+			processData: false,
+			method: 'POST',
+			type: 'POST',
+			success: function(resp) {
+				if (resp == 1) {
+					alert_toast("Data successfully added", 'success')
+					setTimeout(function() {
 						location.reload()
-					},1500)
+					}, 1500)
 
-				}
-				else if(resp==2){
-					alert_toast("Data successfully updated",'success')
-					setTimeout(function(){
+				} else if (resp == 2) {
+					alert_toast("Data successfully updated", 'success')
+					setTimeout(function() {
 						location.reload()
-					},1500)
+					}, 1500)
 
 				}
 			}
 		})
 	})
-	$('.edit_plan').click(function(){
+	$('.edit_plan').click(function() {
 		start_load()
 		var cat = $('#manage-plan')
 		cat.get(0).reset()
@@ -138,21 +136,24 @@
 		cat.find("[name='amount']").val($(this).attr('data-amount'))
 		end_load()
 	})
-	$('.delete_plan').click(function(){
-		_conf("Are you sure to delete this plan?","delete_plan",[$(this).attr('data-id')])
+	$('.delete_plan').click(function() {
+		_conf("Are you sure to delete this plan?", "delete_plan", [$(this).attr('data-id')])
 	})
-	function delete_plan($id){
+
+	function delete_plan($id) {
 		start_load()
 		$.ajax({
-			url:'ajax.php?action=delete_plan',
-			method:'POST',
-			data:{id:$id},
-			success:function(resp){
-				if(resp==1){
-					alert_toast("Data successfully deleted",'success')
-					setTimeout(function(){
+			url: 'ajax.php?action=delete_plan',
+			method: 'POST',
+			data: {
+				id: $id
+			},
+			success: function(resp) {
+				if (resp == 1) {
+					alert_toast("Data successfully deleted", 'success')
+					setTimeout(function() {
 						location.reload()
-					},1500)
+					}, 1500)
 
 				}
 			}
