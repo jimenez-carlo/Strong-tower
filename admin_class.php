@@ -40,6 +40,16 @@ class Action
 			return 3;
 		}
 	}
+
+	public function get_one($sql)
+	{
+		if ($result = mysqli_query($this->db, $sql)) {
+			$obj = mysqli_fetch_object($result);
+			return $obj;
+		}
+		return false;
+	}
+
 	function login2()
 	{
 
@@ -95,10 +105,10 @@ class Action
 		extract($_POST);
 		$data = " name = '$name' ";
 		$data .= ", username = '$username' ";
-		$type = 1;
+		// $type = 1;
 
+		$new_password = md5($password);
 		if (!empty($id)) {
-			$new_password = md5($password);
 			$extra = '';
 			if (!empty($password)) {
 				$extra .=	",password = '$new_password'";
@@ -107,7 +117,7 @@ class Action
 			$_SESSION['login_name'] = $name;
 			return 1;
 		} else {
-			$this->db->query("INSERT INTO users (name,username ,password,type) values ('$name', '$username', '$new_password', 1) ");
+			$this->db->query("INSERT INTO users (name,username ,password,type) values ('$name', '$username', '$new_password', $type) ");
 			return 2;
 		}
 	}
@@ -299,73 +309,19 @@ class Action
 		extract($_POST);
 		if (!empty($id)) {
 			// Update
-			$this->db->query("UPDATE members set member_id = '$member_id', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', gender ='$gender',`address` ='$address' where id = $id ");
+			$this->db->query("UPDATE members set member_id = '$member_id', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', gender ='$gender',`address` ='$address',email='$email', `contact`='$contact' where id = $id ");
 			return 1;
 		} else {
-
-			// echo "INSERT INTO members set (member_id,firstname,middlename,lastname,gender,`address`)VALUES('$member_id','$firstname', '$middlename','$lastname','$gender','$address')";
-			$this->db->query("INSERT INTO members (member_id,firstname,middlename,lastname,gender,`address`)VALUES('$member_id','$firstname', '$middlename','$lastname','$gender','$address')");
-			return 2;
 			// Insert
-		}
-		// $data = '';
-		// foreach ($_POST as $k => $v) {
-		// 	if (!empty($v)) {
-		// 		if (!in_array($k, array('id', 'member_id', 'lastname', 'firstname', 'middlename', 'email', 'contact', 'gender', 'address'))) {
-		// 			if (empty($data))
-		// 				$data .= " $k='{$v}' ";
-		// 			else
-		// 				$data .= ", $k='{$v}' ";
-		// 		}
-		// 	}
-		// }
-		// if (empty($member_id)) {
-		// 	$i = 1;
-		// 	while ($i == 1) {
-		// 		$rand = mt_rand(1, 99999999);
-		// 		$rand = sprintf("%'08d", $rand);
-		// 		$chk = $this->db->query("SELECT * FROM members where member_id = '$rand' ")->num_rows;
-		// 		if ($chk <= 0) {
-		// 			$data .= ", member_id='$rand' ";
-		// 			$i = 0;
-		// 		}
-		// 	}
-		// }
+			$query = $this->get_one("SELECT (member_id) as max_id FROM members");
+			if (empty($member_id) && isset($query->max_id)) {
+				$member_id = (int)$member_id + (int)$query->max_id;
+			}
 
-		// if (empty($id)) {
-		// 	if (!empty($member_id)) {
-		// 		$chk = $this->db->query("SELECT * FROM members where member_id = '$member_id' ")->num_rows;
-		// 		if ($chk > 0) {
-		// 			return 2;
-		// 			exit;
-		// 		}
-		// 	}
-		// 	$save = $this->db->query("INSERT INTO members set $data ");
-		// 	if ($save) {
-		// 		$member_id = $this->db->insert_id;
-		// 		$data = " member_id ='$member_id' ";
-		// 		$data .= ", plan_id ='$plan_id' ";
-		// 		$data .= ", package_id ='$package_id' ";
-		// 		$data .= ", trainer_id ='$trainer_id' ";
-		// 		$data .= ", start_date ='" . date("Y-m-d") . "' ";
-		// 		$plan = $this->db->query("SELECT * FROM plans where id = $plan_id")->fetch_array()['plan'];
-		// 		$data .= ", end_date ='" . date("Y-m-d", strtotime(date('Y-m-d') . ' +' . $plan . ' months')) . "' ";
-		// 		$save = $this->db->query("INSERT INTO registration_info set $data");
-		// 		if (!$save)
-		// 			$this->db->query("DELETE FROM members where id = $member_id");
-		// 	}
-		// } else {
-		// 	if (!empty($member_id)) {
-		// 		$chk = $this->db->query("SELECT * FROM members where member_id = '$member_id' and id != $id ")->num_rows;
-		// 		if ($chk > 0) {
-		// 			return 2;
-		// 			exit;
-		// 		}
-		// 	}
-		// 	$save = $this->db->query("UPDATE members set $data where id=" . $id);
-		// }
-		// if ($save)
-		// 	return 1;
+
+			$this->db->query("INSERT INTO members (member_id,firstname,middlename,lastname,gender,`address`,email,contact)VALUES('$member_id','$firstname', '$middlename','$lastname','$gender','$address','$email','$contact')");
+			return 2;
+		}
 	}
 	function delete_member()
 	{

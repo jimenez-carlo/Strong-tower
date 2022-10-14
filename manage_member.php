@@ -64,7 +64,31 @@ if (isset($_GET['id'])) {
 	$('#manage-member').submit(function(e) {
 		e.preventDefault()
 		start_load()
-
+		if ($('[name="lastname"]').val() == '') {
+			alert_toast("Last Name Is Empty.", 'danger')
+			end_load();
+			return false;
+		}
+		if ($('[name="firstname"]').val() == '') {
+			alert_toast("First Name Is Empty.", 'danger')
+			end_load();
+			return false;
+		}
+		if ($('[name="middlename"]').val() == '') {
+			alert_toast("Middle Name Is Empty.", 'danger')
+			end_load();
+			return false;
+		}
+		if ($('[name="email"]').val() == '') {
+			alert_toast("Email Is Empty.", 'danger')
+			end_load();
+			return false;
+		}
+		if ($('[name="contact"]').val() == '') {
+			alert_toast("Contact Is Empty.", 'danger')
+			end_load();
+			return false;
+		}
 
 		$.ajax({
 			url: 'ajax.php?action=save_member',

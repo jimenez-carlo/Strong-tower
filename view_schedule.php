@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
 		<div class="col-md-12">
 			<button class="btn float-right btn-secondary" type="button" data-dismiss="modal">Close</button>
 			<button class="btn float-right btn-danger mr-2" type="button" id="delete_schedule">Delete</button>
-			<button class="btn float-right btn-primary mr-2" type="button" id="edit">Edit</button>
+			<button class="btn float-right btn-danger mr-2" type="button" id="edit">Edit</button>
 		</div>
 	</div>
 </div>

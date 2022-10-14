@@ -27,11 +27,11 @@ if(isset($_GET['id'])){
 	<div class="row">
 		<div class="col-md-12">
 			<button class="btn float-right btn-secondary" type="button" data-dismiss="modal">Close</button>
-			<button class="btn float-right btn-primary mr-2" type="button" id="payment">Payment</button>
+			<button class="btn float-right btn-danger mr-2" type="button" id="payment">Payment</button>
 			<?php if(strtotime(date('Y-m-d')) > strtotime($end_date)): ?>
-			<button class="btn float-right btn-primary mr-2" type="button" id="renew">Renew</button>
+			<button class="btn float-right btn-danger mr-2" type="button" id="renew">Renew</button>
 			<?php endif; ?>
-			<button class="btn float-right btn-primary mr-2" type="button" id="end">End Plan</button>
+			<button class="btn float-right btn-danger mr-2" type="button" id="end">End Plan</button>
 		</div>
 	</div>
 </div>

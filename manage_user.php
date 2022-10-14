@@ -63,6 +63,12 @@ if (isset($_GET['id'])) {
 					setTimeout(function() {
 						location.reload()
 					}, 1500)
+				} else {
+					alert_toast("Data successfully saved", 'success')
+					setTimeout(function() {
+						location.reload()
+					}, 1500)
+
 				}
 				// else{
 				// 					$('#msg').html('<div class="alert alert-danger">Username already exist</div>')
