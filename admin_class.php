@@ -113,6 +113,10 @@ class Action
 			if (!empty($password)) {
 				$extra .=	",password = '$new_password'";
 			}
+			if (isset($type) && !empty($type)) {
+				$extra .=	",type = '$type'";
+			}
+
 			$this->db->query("UPDATE users set name='$name', username='$username'$extra where id = " . $id);
 			$_SESSION['login_name'] = $name;
 			return 1;
