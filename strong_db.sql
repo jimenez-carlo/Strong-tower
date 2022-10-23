@@ -43,6 +43,39 @@ INSERT INTO `tbl_access` VALUES (1,'Super Admin','2022-10-07 21:21:01','2022-10-
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tbl_activity`
+--
+
+DROP TABLE IF EXISTS `tbl_activity`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_activity` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created_date` datetime DEFAULT current_timestamp(),
+  `updated_date` datetime DEFAULT current_timestamp(),
+  `deleted_flag` tinyint(4) DEFAULT 0,
+  `customer_id` int(11) DEFAULT NULL,
+  `workout_id` varchar(45) DEFAULT NULL,
+  `reps` int(11) DEFAULT NULL,
+  `sets` int(11) DEFAULT NULL,
+  `duration` varchar(45) DEFAULT NULL,
+  `km` varchar(45) DEFAULT NULL,
+  `remarks` text DEFAULT NULL,
+  `workout_target_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_activity`
+--
+
+LOCK TABLES `tbl_activity` WRITE;
+/*!40000 ALTER TABLE `tbl_activity` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbl_activity` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tbl_branch`
 --
 
@@ -52,6 +85,7 @@ DROP TABLE IF EXISTS `tbl_branch`;
 CREATE TABLE `tbl_branch` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL,
   `created_date` datetime DEFAULT current_timestamp(),
   `updated_date` datetime DEFAULT current_timestamp(),
   `deleted_flag` tinyint(4) DEFAULT 0,
@@ -65,8 +99,36 @@ CREATE TABLE `tbl_branch` (
 
 LOCK TABLES `tbl_branch` WRITE;
 /*!40000 ALTER TABLE `tbl_branch` DISABLE KEYS */;
-INSERT INTO `tbl_branch` VALUES (1,'branch 1','2022-10-07 21:31:07','2022-10-07 21:31:07',0),(2,'branch 2','2022-10-07 21:31:07','2022-10-07 21:31:07',0),(3,'branch 3','2022-10-07 21:31:07','2022-10-07 21:31:07',0);
+INSERT INTO `tbl_branch` VALUES (1,'branch 1',NULL,'2022-10-07 21:31:07','2022-10-07 21:31:07',0),(2,'branch 2',NULL,'2022-10-07 21:31:07','2022-10-07 21:31:07',0),(3,'branch 3',NULL,'2022-10-07 21:31:07','2022-10-07 21:31:07',0);
 /*!40000 ALTER TABLE `tbl_branch` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_equipment`
+--
+
+DROP TABLE IF EXISTS `tbl_equipment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_equipment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT current_timestamp(),
+  `updated_date` datetime DEFAULT current_timestamp(),
+  `deleted_flag` tinyint(4) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_equipment`
+--
+
+LOCK TABLES `tbl_equipment` WRITE;
+/*!40000 ALTER TABLE `tbl_equipment` DISABLE KEYS */;
+INSERT INTO `tbl_equipment` VALUES (1,'Treadmill',4,'2022-10-24 04:20:22','2022-10-24 04:20:22',0),(2,'Seated Dip Machine',1,'2022-10-24 04:20:22','2022-10-24 04:20:22',0),(3,'Chest Press Machine',1,'2022-10-24 04:20:22','2022-10-24 04:20:22',0),(4,'Bench Press',1,'2022-10-24 04:20:22','2022-10-24 04:20:22',0),(5,'Incline Bench Press',1,'2022-10-24 04:20:22','2022-10-24 04:20:22',0),(6,'Decline Bench Press',1,'2022-10-24 04:20:22','2022-10-24 04:20:22',0),(7,'Preacher Curl Bench',1,'2022-10-24 04:20:22','2022-10-24 04:20:22',0);
+/*!40000 ALTER TABLE `tbl_equipment` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -109,6 +171,7 @@ CREATE TABLE `tbl_plan` (
   `per_month` varchar(45) DEFAULT NULL,
   `per_session` varchar(45) DEFAULT NULL,
   `description` text DEFAULT NULL,
+  `deleted_flag` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -119,7 +182,7 @@ CREATE TABLE `tbl_plan` (
 
 LOCK TABLES `tbl_plan` WRITE;
 /*!40000 ALTER TABLE `tbl_plan` DISABLE KEYS */;
-INSERT INTO `tbl_plan` VALUES (1,'Platinum','1500','150','<li><i class=\"fa-solid fa-check\"></i> Use of weights and<br> body building machines</li>\r                     <li><i class=\"fa-solid fa-check\"></i>all equipment including <br>high-end treadmills</li>'),(2,'Gold','700','100','<li><i class=\"fa-solid fa-check\"></i>use of weights <br>and body building machines</li>\n                    <li><i class=\"fa-solid fa-check\"></i>eliptical machines</li>'),(3,'Silver','500','70','<li><i class=\"fa-solid fa-check\"></i> Use of weights <br>and body building <br> only</li>');
+INSERT INTO `tbl_plan` VALUES (1,'Platinum','1500','150','<li><i class=\"fa-solid fa-check\"></i> Use of weights and<br> body building machines</li>\r                     <li><i class=\"fa-solid fa-check\"></i>all equipment including <br>high-end treadmills</li>',0),(2,'Gold','700','100','<li><i class=\"fa-solid fa-check\"></i>use of weights <br>and body building machines</li>\n                    <li><i class=\"fa-solid fa-check\"></i>eliptical machines</li>',0),(3,'Silver','500','70','<li><i class=\"fa-solid fa-check\"></i> Use of weights <br>and body building <br> only</li>',0);
 /*!40000 ALTER TABLE `tbl_plan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,6 +241,36 @@ INSERT INTO `tbl_status` VALUES (1,'FAT','2022-10-07 21:54:06','2022-10-07 21:54
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tbl_supplements`
+--
+
+DROP TABLE IF EXISTS `tbl_supplements`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_supplements` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `image` varchar(225) DEFAULT 'default.png',
+  `name` varchar(255) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT current_timestamp(),
+  `updated_date` datetime DEFAULT current_timestamp(),
+  `deleted_flag` tinyint(4) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_supplements`
+--
+
+LOCK TABLES `tbl_supplements` WRITE;
+/*!40000 ALTER TABLE `tbl_supplements` DISABLE KEYS */;
+INSERT INTO `tbl_supplements` VALUES (1,'img1.webp','Prothin Whey Ripped',NULL,1599,'2022-10-24 04:33:53','2022-10-24 04:33:53',0),(2,'img2.webp','Weider Amino Max 8000',NULL,299,'2022-10-24 04:33:53','2022-10-24 04:33:53',0),(3,'img3.webp','Creatine Capsules',NULL,164,'2022-10-24 04:33:53','2022-10-24 04:33:53',0),(4,'img4.webp','MuscleTech Muscle Builder',NULL,1762,'2022-10-24 04:33:53','2022-10-24 04:33:53',0);
+/*!40000 ALTER TABLE `tbl_supplements` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tbl_trainer_plan`
 --
 
@@ -219,11 +312,12 @@ CREATE TABLE `tbl_user` (
   `password` varchar(255) DEFAULT NULL,
   `branch_id` int(11) DEFAULT NULL,
   `access_id` int(11) DEFAULT NULL,
+  `verified` tinyint(4) DEFAULT 0,
   `created_date` datetime DEFAULT current_timestamp(),
   `updated_date` datetime DEFAULT current_timestamp(),
   `deleted_flag` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -232,7 +326,7 @@ CREATE TABLE `tbl_user` (
 
 LOCK TABLES `tbl_user` WRITE;
 /*!40000 ALTER TABLE `tbl_user` DISABLE KEYS */;
-INSERT INTO `tbl_user` VALUES (1,'admin','admin@gmail.com','123',1,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(2,'manager','manager@gmail.com','123',1,2,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(3,'trainer','trainer@gmail.com','123',1,3,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(4,'staff','staff@gmail.com','123',1,4,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(5,'customer','customer@gmail.com','123',1,5,'2022-10-07 21:29:59','2022-10-07 21:29:59',0);
+INSERT INTO `tbl_user` VALUES (1,'admin','admin@gmail.com','123',1,1,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(2,'manager','manager@gmail.com','123',1,2,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(3,'trainer','trainer@gmail.com','123',1,3,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(4,'staff','staff@gmail.com','123',1,4,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(5,'customer','customer@gmail.com','123',1,5,1,'2022-10-07 21:29:59','2022-10-07 21:29:59',0);
 /*!40000 ALTER TABLE `tbl_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -249,14 +343,14 @@ CREATE TABLE `tbl_user_info` (
   `middle_name` varchar(45) DEFAULT NULL,
   `last_name` varchar(45) DEFAULT NULL,
   `gender_id` int(11) DEFAULT NULL,
-  `contact` varchar(45) DEFAULT NULL,
+  `contact_no` varchar(45) DEFAULT NULL,
   `picture` varchar(255) DEFAULT 'default.jpg',
   `created_date` datetime DEFAULT current_timestamp(),
   `updated_date` datetime DEFAULT current_timestamp(),
   `deleted_flag` tinyint(4) DEFAULT 0,
   `address` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -268,6 +362,36 @@ LOCK TABLES `tbl_user_info` WRITE;
 INSERT INTO `tbl_user_info` VALUES (1,'admin','admin','admin',1,'09000000000','default.jpg','2022-10-07 21:39:28','2022-10-07 21:39:28',0,'admin'),(2,'manager','manager','manager',1,'09000000000','default.jpg','2022-10-07 21:39:28','2022-10-07 21:39:28',0,'manager'),(3,'trainer','trainer','trainer',1,'09000000000','default.jpg','2022-10-07 21:39:28','2022-10-07 21:39:28',0,'trainer'),(4,'staff','staff','staff',1,'09000000000','default.jpg','2022-10-07 21:39:28','2022-10-07 21:39:28',0,'staff'),(5,'customer','customer','customer',1,'09000000000','default.jpg','2022-10-07 21:39:28','2022-10-07 21:39:28',0,'customer');
 /*!40000 ALTER TABLE `tbl_user_info` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_workout`
+--
+
+DROP TABLE IF EXISTS `tbl_workout`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_workout` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `reps` int(11) DEFAULT NULL,
+  `sets` int(11) DEFAULT NULL,
+  `duration` varchar(255) DEFAULT 'None',
+  `created_date` datetime DEFAULT current_timestamp(),
+  `updated_date` datetime DEFAULT current_timestamp(),
+  `deleted_flag` tinyint(4) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_workout`
+--
+
+LOCK TABLES `tbl_workout` WRITE;
+/*!40000 ALTER TABLE `tbl_workout` DISABLE KEYS */;
+INSERT INTO `tbl_workout` VALUES (1,'Barbel Bench Press',12,3,'None','2022-10-24 04:46:09','2022-10-24 04:46:09',0),(2,'Barbel Inclined Bench Press',12,3,'None','2022-10-24 04:46:09','2022-10-24 04:46:09',0),(3,'Dumbell Flyes',12,3,'None','2022-10-24 04:46:09','2022-10-24 04:46:09',0),(4,'Chest Dips',12,4,'None','2022-10-24 04:46:09','2022-10-24 04:46:09',0),(5,'Chest Dips',12,3,'None','2022-10-24 04:46:48','2022-10-24 04:46:48',0),(6,'Cardio',2,1,'30mins','2022-10-24 04:49:42','2022-10-24 04:49:42',0);
+/*!40000 ALTER TABLE `tbl_workout` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -278,4 +402,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-23 19:40:01
+-- Dump completed on 2022-10-24  5:01:01
