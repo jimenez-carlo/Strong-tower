@@ -1,10 +1,5 @@
 <?php
 
-use Twilio\Rest\Client;
-use Messente\Api\Api\OmnimessageApi;
-use Messente\Api\Model\Omnimessage;
-use Messente\Api\Configuration;
-use Messente\Api\Model\SMS;
 
 class Base
 {
@@ -97,7 +92,7 @@ class Base
   {
     return sprintf(
       '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-      <i class="fa fa-warning"></i><strong>%s</strong> %s <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <i class="fas fa-exclamation-triangle"></i> <strong>%s</strong> %s <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>',
       $title,
       $message
@@ -108,7 +103,7 @@ class Base
   {
     return sprintf(
       '<div class="alert alert-success alert-dismissible fade show" role="alert" >
-       <i class="fa fa-warning"></i><strong>%s</strong> %s <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       <i class="fas fa-check"></i> <strong>%s</strong> %s <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>',
       $title,
       $message
@@ -147,7 +142,7 @@ class Base
   public function save_error($error = '')
   {
     $error = addslashes($error);
-    $this->query("insert into tbl_system_error (message) values('$error')");
+    // $this->query("insert into tbl_system_error (message) values('$error')");
   }
 
 

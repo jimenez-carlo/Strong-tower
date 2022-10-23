@@ -20,7 +20,7 @@ class Login extends Base
 
     // Require Fields
 
-    $required_fields = array('complaint', 'location', 'date_of_incident');
+    $required_fields = array('username', 'email', 'password', 're_password', 'first_name', 'last_name', 'contact_no');
 
     foreach ($required_fields as $res) {
       if (empty(${$res})) {
@@ -31,30 +31,47 @@ class Login extends Base
 
     if (!empty($errors)) {
       $msg .= "Please Fill Blank Fields!";
-      $result->result = $this->response_error($msg);
+      $result->result = $this->response_landing_error($msg);
       $result->items = implode(',', $errors);
       return $result;
     }
 
-    if ($complainant_id == $complainee_id) {
-      $errors[] = 'complainant_id';
-      $errors[] = 'complainee_id';
-      $msg .= "Complainant and Complainee Is the Same!";
-      $result->result = $this->response_error($msg);
-      $result->items = implode(',', $errors);
+    $check_username = $this->get_one("SELECT if(max(u.id) is null, 0, max(u.id) + 1) as `res` from tbl_user u where u.username ='$username' limit 1");
+    $check_email = $this->get_one("SELECT if(max(u.id) is null, 0, max(u.id) + 1) as `res` from tbl_user u where u.email ='$email' limit 1");
+
+    if (!empty($check_username->res)) {
+      $msg .= "Username Already In-use!";
+      $result->result = $this->response_landing_error($msg);
+      $result->items = implode(',', array('username'));
       return $result;
     }
+
+    if (!empty($check_email->res)) {
+      $msg .= "Username Already In-use!";
+      $result->result = $this->response_landing_error($msg);
+      $result->items = implode(',', array('email'));
+      return $result;
+    }
+
+    if ($password != $re_password) {
+      $msg .= "Password Doest Not Match!";
+      $result->result = $this->response_landing_error($msg);
+      $result->items = implode(',', array('password', 're_password'));
+      return $result;
+    }
+
+
+    $verified = ($type == 5) ? 1 : 0;
 
     $this->start_transaction();
     try {
       // Insert Blotter
-      $blotter_id = $this->insert_get_id("INSERT INTO tbl_blotter (complainant_id, complainee_id, blotter_status_id, complaint, incidence, action_id, created_by, incidence_date) VALUES($complainant_id, $complainee_id, $status, '$complaint', '$location', '$action',1, '$date_of_incident')");
-
-      mysqli_query($this->conn, "INSERT INTO tbl_blotter_history (blotter_id, blotter_status_id, created_by) VALUES($blotter_id, $status, 1)");
+      $user_id = $this->insert_get_id("INSERT INTO tbl_user (username,email,`password`,branch_id,access_id,verified) VALUES('$username', '$email', '$password', '$branch', '$type', '$verified')");
+      $this->query("INSERT INTO tbl_user_info (id,first_name,last_name,gender_id,contact_no) VALUES('$user_id','$first_name','$last_name','$gender','$contact_no')");
 
       $this->commit_transaction();
-      $result->status = false;
-      $result->result = $this->response_success("New Blotter Case Created!");
+      $result->status = true;
+      $result->result = $this->response_success("User Registered Successfully!", 'Successfull!');
       return $result;
     } catch (mysqli_sql_exception $exception) {
       $this->roll_back();
@@ -75,9 +92,7 @@ class Login extends Base
     $msg = '';
 
     // Require Fields
-
     $required_fields = array('username', 'password');
-
     foreach ($required_fields as $res) {
       if (empty(${$res})) {
         $errors[] = $res;
@@ -87,27 +102,32 @@ class Login extends Base
 
     if (!empty($errors)) {
       $msg .= "Please Fill Blank Fields!";
-      $result->result = $this->response_error($msg);
+      $result->result = $this->response_landing_error($msg);
       $result->items = implode(',', $errors);
       return $result;
     }
 
 
-    $this->start_transaction();
-    try {
-      // Insert Blotter
-      $tmp = $this->get_one("SELECT * from tbl_user where username = '$username' and password='$password'");
+    $user = $this->get_one("SELECT * from tbl_user u inner join tbl_user_info ui on ui.id = u.id where u.username ='$username' and u.`password`='$password' and u.deleted_flag = 0 limit 1");
+    $check_user = $this->get_one("SELECT if(max(u.id) is null, 0, max(u.id) + 1) as `res` from tbl_user u where u.username ='$username' and u.`password`='$password' and u.deleted_flag = 0 limit 1");
 
-      $this->commit_transaction();
-      $result->extra = $tmp;
-      $result->status = true;
-      $result->result = $this->response_landing_success("New Blotter Case Created!");
+    if (empty($check_user->res)) {
+      $msg .= "Invalid Username/Password!";
+      $result->result = $this->response_landing_error($msg);
+      $result->items = implode(',', array('email'));
       return $result;
-    } catch (mysqli_sql_exception $exception) {
-      $this->roll_back();
-      $new = new self($this->conn);
-      $new->save_error($exception->getMessage());
-      $result->result = $this->response_landing_error();
+    }
+
+    if (isset($user->verified) && !empty($user->verified)) {
+      $_SESSION['is_logged_in'] = true;
+      $_SESSION['user'] = $user;
+      $result->status = true;
+      $result->result = $this->response_landing_success("Please wait...", 'Logging In.,');
+      return $result;
+    } else {
+      $msg .= "Please Contact Your Admin To Verify Your Account!";
+      $result->result = $this->response_landing_error($msg);
+      $result->items = implode(',', $errors);
       return $result;
     }
   }

@@ -668,13 +668,13 @@
               <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa fa-user"></i></div>
               </div>
-              <input type="text" class="form-control" id="inlineFormInputGroup" name="username" placeholder="Username" required>
+              <input type="text" class="form-control" id="inlineFormInputGroup" name="username" id="username" placeholder="Username">
             </div>
             <div class="input-group mb-2">
               <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa fa-lock"></i></div>
               </div>
-              <input type="password" class="form-control" id="inlineFormInputGroup" name="password" placeholder="Password" required>
+              <input type="password" class="form-control" id="inlineFormInputGroup" name="password" id="password" placeholder="Password">
             </div>
           </div>
           <div class="modal-footer">
@@ -699,24 +699,69 @@
         <form action="post" name="landing_signup">
           <div class="modal-body">
             <div id="signup_result"></div>
-            <!-- <nav>
-              <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-client-tab" data-toggle="tab" href="#nav-client" role="tab" aria-controls="nav-client" aria-selected="true">Client</a>
-                <a class="nav-item nav-link" id="nav-trainer-tab" data-toggle="tab" href="#nav-trainer" role="tab" aria-controls="nav-trainer" aria-selected="false">Trainer</a>
-              </div>
-            </nav>
-            <div class="tab-content" id="nav-tabContent">
-              <div class="tab-pane fade show active" id="nav-client" role="tabpanel" aria-labelledby="nav-home-tab"></div>
-              <div class="tab-pane fade" id="nav-trainer" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-            </div> -->
+
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4">
+                <label for="inputEmail4">*Username</label>
+                <input type="text" class="form-control" name="username" id="inputEmail4">
               </div>
               <div class="form-group col-md-6">
-                <label for="inputPassword4">Password</label>
-                <input type="password" class="form-control" id="inputPassword4">
+                <label for="inputPassword4">*Email</label>
+                <input type="email" class="form-control" name="email" id="inputPassword4">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">*Password</label>
+                <input type="password" class="form-control" name="password" id="inputEmail4">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">*Re-Type Password</label>
+                <input type="password" class="form-control" name="re_password" id="inputPassword4">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">*First Name</label>
+                <input type="text" class="form-control" name="first_name" id="inputEmail4">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">*Last Name</label>
+                <input type="text" class="form-control" name="last_name" id="inputPassword4">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="inputPassword4">*Contact No</label>
+                <input type="number" class="form-control" name="contact_no" id="inputPassword4">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Gender</label>
+                <select class="custom-select" name="gender" style="width: 100%;height:38px">
+                  <?php foreach ($gender as $res) { ?>
+                    <option value="<?php echo $res['id']; ?>"><?php echo $res['name']; ?></option>
+                  <?php } ?>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Type</label>
+                <select class="custom-select" name="type" style="width: 100%;height:38px">
+                  <option value="3">Trainer</option>
+                  <option value="5">Client</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="inputEmail4">Branch</label>
+                <select class="custom-select" name="branch" style="width: 100%;height:38px">
+                  <?php foreach ($branch as $res) { ?>
+                    <option value="<?php echo $res['id']; ?>"><?php echo $res['name']; ?></option>
+                  <?php } ?>
+                </select>
+
               </div>
             </div>
           </div>

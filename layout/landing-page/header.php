@@ -18,6 +18,7 @@
   <!-- Customized Bootstrap Stylesheet -->
   <link href="css/landing_page.css" rel="stylesheet">
   <link href="css/landing_page_custom.css" rel="stylesheet">
+  <link href="css/select2.css" rel="stylesheet">
 </head>
 <script>
   var base_url = "<?php echo "http://" . $_SERVER['SERVER_NAME'] . str_replace("index.php", "", strtok($_SERVER["REQUEST_URI"], '?')); ?>";

@@ -60,7 +60,7 @@ $(document).on("submit", 'form', function (e) {
   var type = e.originalEvent.submitter.name;
   var type_value = e.originalEvent.submitter.value;
   if (this.name == 'logout') {
-    window.location.href = base_url+'module/logout.php';
+    window.location.href = base_url+'/logout.php';
   }
   
   formdata = new FormData(this);
@@ -70,7 +70,7 @@ $(document).on("submit", 'form', function (e) {
 
   $.ajax({
     method: "POST",
-    url: base_url + "module/request.php",
+    url: base_url + "/request.php",
     data: formdata,
     processData: false,
     contentType: false,

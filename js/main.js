@@ -11,6 +11,8 @@ function clearErrors() {
 function errorFields(strings) {
   $.each(strings.split(","), function (i,word) {
     var field = $("#" + word);
+    console.log(field);
+    console.log("#" + word);
       if (!$(field).hasClass("is-invalid")) {
         $(field).addClass("is-invalid");
       }
@@ -21,6 +23,8 @@ function requireFields(strings) {
   var errors = 0;
   $.each(strings.split(","), function (i,word) {
     var field = $("#" + word);
+    console.log("#" + word);
+    console.log(field);
     if (field.val() == "" || field.val() == null || field.val().length == 0) {
       if (!$(field).hasClass("is-invalid")) {
         $(field).addClass("is-invalid");

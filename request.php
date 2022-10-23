@@ -1,11 +1,12 @@
 <?php
-require('../database/connection.php');
-require_once('../class/base.php');
-require_once('../class/user.php');
-require_once('../class/shop.php');
-require_once('../class/product.php');
-require_once('../class/category.php');
-require_once('common.php');
+require('database/connection.php');
+require_once('class/base.php');
+require_once('class/login.php');
+require_once('class/user.php');
+require_once('class/shop.php');
+require_once('class/product.php');
+require_once('class/category.php');
+require_once('module/common.php');
 
 $base = new Base($conn);
 $result = $base->response_error();
@@ -27,14 +28,11 @@ switch ($form) {
     // Customer
   case 'landing_signup':
     $result = $base->response_landing_obj();
-    $result = $login->login();
+    $result = $login->register();
     break;
   case 'landing_login':
     $result = $base->response_landing_obj();
-    $result = $login->register();
-    break;
-  case 'update_transaction':
-    $result = $shop->update_transaction($_POST['id'], $_POST['status']);
+    $result = $login->login();
     break;
   default:
     # code...

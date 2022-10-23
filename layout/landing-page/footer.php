@@ -59,6 +59,8 @@
     <!-- JavaScript Libraries -->
     <script src="js/landing_jquery.js"></script>
     <script src="js/landing_boostrap.js"></script>
+    <script src="js/select2.js"></script>
+
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
 
@@ -67,7 +69,7 @@
     <script src="mail/contact.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script> -->
     <script src="js/landing_page.js"></script>
     </body>
 

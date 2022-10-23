@@ -33,6 +33,39 @@
     });
 })(jQuery);
 
+
+var MessageFieldRequired = "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Please Enter Missing Fields.";
+var MessagePasswordNotMatch = "<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Password Does Not Match.";
+
+function clearErrors() {
+  // Remove all error css
+  // $('form>.alert-danger').hide();
+  $(".is-invalid").removeClass("is-invalid");
+}
+
+function errorFields(strings) {
+  $.each(strings.split(","), function (i,word) {
+    var field = $("[name='"+word+"']");
+      if (!$(field).hasClass("is-invalid")) {
+        $(field).addClass("is-invalid");
+      }
+  });
+}
+
+function requireFields(strings) {
+  var errors = 0;
+  $.each(strings.split(","), function (i,word) {
+    var field = $("[name='"+word+"']");
+    if (field.val() == "" || field.val() == null || field.val().length == 0) {
+      if (!$(field).hasClass("is-invalid")) {
+        $(field).addClass("is-invalid");
+      }
+      errors++;
+    }
+  });
+  return (errors == 0) ? true : false;
+}
+
 $(document).on("submit", 'form', function (e) {
   e.preventDefault();
   clearErrors();
@@ -41,7 +74,7 @@ $(document).on("submit", 'form', function (e) {
   var type = e.originalEvent.submitter.name;
   var type_value = e.originalEvent.submitter.value;
   if (this.name == 'logout') {
-    window.location.href = base_url+'module/logout.php';
+    window.location.href = base_url+'/logout.php';
   }
   
   formdata = new FormData(this);
@@ -50,7 +83,7 @@ $(document).on("submit", 'form', function (e) {
 
   $.ajax({
     method: "POST",
-    url: base_url + "module/request.php",
+    url: base_url + "/request.php",
     data: formdata,
     processData: false,
     contentType: false,
@@ -66,10 +99,8 @@ $(document).on("submit", 'form', function (e) {
       if (result.status == true) {
         $(form_raw).trigger('reset');
       }
-      if (result.status == true) {
-       if (form_name == 'update_user' && type_value == 'delete_user') {
-         $( "#content" ).load( base_url+'module/page.php?page=users' );
-       }
+      if (result.status == true && form_name =='landing_login') {
+        window.location.reload();
 
       }
       if (result.items != '') {
@@ -77,4 +108,8 @@ $(document).on("submit", 'form', function (e) {
       }
     }
   });
+});
+
+$(document).ready(function() {
+    $('.select').select2();
 });
