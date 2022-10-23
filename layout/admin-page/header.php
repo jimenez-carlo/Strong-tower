@@ -10,8 +10,14 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="css/admin.css">
 </head>
 <script>
   var base_url = "<?php echo "http://" . $_SERVER['SERVER_NAME'] . str_replace("index.php", "", strtok($_SERVER["REQUEST_URI"], '?')); ?>";
@@ -100,35 +106,77 @@
                with font-awesome or any other icon font library -->
 
             <li class="nav-item">
-              <a href="#" class="nav-link active">
+              <a href="." class="nav-link btn-side active">
                 <i class="fa fa-home nav-icon"></i>
                 <p>Home</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="fa fa-dumbbell nav-icon"></i>
-                <p>Daily Workout</p>
+              <a href="#" class="nav-link btn-side" name="admin/clients">
+                <i class="fa fa-users nav-icon"></i>
+                <p>Clients</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="#" class="nav-link btn-side" name="admin/trainers">
+                <i class="fa fa-users nav-icon"></i>
+                <p>Trainers</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link btn-side" name="admin/employees">
+                <i class="fa fa-users nav-icon"></i>
+                <p>Employees</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link btn-side" name="admin/branches">
+                <i class="fa fa-store nav-icon"></i>
+                <p>Branches</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link btn-side" name="admin/plans">
+                <i class="fa fa-clipboard nav-icon"></i>
+                <p>Membership Plans</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link btn-side" name="admin/workouts">
+                <i class="fa fa-hand-rock nav-icon"></i>
+                <p>Workouts</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link btn-side" name="admin/equipments">
+                <i class="fa fa-dumbbell nav-icon"></i>
+                <p>Equipments</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link btn-side" name="admin/supplements">
+                <i class="fa fa-pills nav-icon"></i>
+                <p>Supplements</p>
+              </a>
+            </li>
+
+
+            <!-- <li class="nav-item">
+              <a href="#" class="nav-link btn-side">
                 <i class="fa fa-calendar nav-icon"></i>
                 <p>My Activity</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="#" class="nav-link btn-side">
                 <i class="fa fa-clipboard nav-icon"></i>
                 <p>Workout Plan</p>
               </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="fa fa-pills nav-icon"></i>
-                <p>Supplements</p>
-              </a>
-            </li>
+            </li> -->
 
           </ul>
         </nav>

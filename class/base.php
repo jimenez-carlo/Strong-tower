@@ -62,7 +62,7 @@ class Base
     return sprintf(
       '<div class="alert alert-sm alert-danger alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <i class="fa fa-warning"></i> <strong>%s</strong> %s </div>',
+            <i class="icon fas fa-ban"></i> <strong>%s</strong> %s </div>',
       $title,
       $message
     );

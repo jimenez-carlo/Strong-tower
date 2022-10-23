@@ -19,9 +19,9 @@ if (isset($_SESSION['is_logged_in'])) {
     include('layout/customer-page/footer.php');
   } else {
     // admin
-    include('layout/user-page/header.php');
-    include('layout/user-page/body.php');
-    include('layout/user-page/footer.php');
+    include('layout/admin-page/header.php');
+    include('layout/admin-page/body.php');
+    include('layout/admin-page/footer.php');
   }
 } else {
   include('layout/landing-page/header.php');
