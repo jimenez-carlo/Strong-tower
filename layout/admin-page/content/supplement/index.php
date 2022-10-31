@@ -21,10 +21,9 @@
                     <td><?php echo ucfirst($res['name']); ?></td>
                     <td class="text-right"><?php echo number_format($res['price'], 2); ?></td>
                     <td>
-                      <form method="post" name="update_user">
-                        <button type="button" class="btn btn-sm btn-dark btn-edit" name="user_edit" value="<?php echo $res['id']; ?>"> Edit <i class="fa fa-edit"></i> </button>
-                        <input type="hidden" value="<?php echo $res['id']; ?>" name="user_id">
-                        <button type="submit" class="btn btn-sm btn-dark" name="type" value="delete_user"> Delete <i class="fa fa-trash"></i> </button>
+                      <form method="post" name="update_supplement">
+                        <button type="button" class="btn btn-sm btn-dark btn-edit" name="admin/supplement_edit" value="<?php echo $res['id']; ?>"> Edit <i class="fa fa-edit"></i> </button>
+                        <button type="submit" class="btn btn-sm btn-dark" name="delete" value="<?php echo $res['id']; ?>"> Delete <i class="fa fa-trash"></i> </button>
                       </form>
                     </td>
                   </tr>
@@ -53,7 +52,7 @@
               className: 'btn btn-sm btn-dark',
               text: '<i class="fa fa-plus"></i> Add Supplement',
               action: function(e, dt, node, config) {
-                $("#content").load(base_url + 'page.php?page=supplement_add');
+                $("#content").load(base_url + 'page.php?page=admin/supplement_add');
               }
             }]
           });

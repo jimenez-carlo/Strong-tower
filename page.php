@@ -45,6 +45,48 @@ if (in_array($page, $pages)) {
     case 'admin/workouts':
       $data['workouts'] = $base->get_list("select * from tbl_workout where deleted_flag = 0");
       break;
+
+    case 'admin/client_add':
+    case 'admin/trainer_add':
+    case 'admin/employee_add':
+      $data['branch'] = $base->get_list("select * from tbl_branch where deleted_flag = 0");
+      $data['gender'] = $base->get_list("select * from tbl_gender where deleted_flag = 0");
+      $data['access'] = $base->get_list("select * from tbl_access where id in(2,3,4) and deleted_flag = 0");
+      break;
+    case 'admin/client_edit':
+      $data['client'] = $base->get_one("SELECT u.*,ui.* FROM tbl_user u inner join tbl_user_info ui on ui.id = u.id where u.id = $id");
+      $data['branch'] = $base->get_list("select * from tbl_branch where deleted_flag = 0");
+      $data['gender'] = $base->get_list("select * from tbl_gender where deleted_flag = 0");
+      break;
+    case 'admin/trainer_edit':
+      $data['trainer'] = $base->get_one("SELECT u.*,ui.* FROM tbl_user u inner join tbl_user_info ui on ui.id = u.id where u.id = $id");
+      $data['branch'] = $base->get_list("select * from tbl_branch where deleted_flag = 0");
+      $data['gender'] = $base->get_list("select * from tbl_gender where deleted_flag = 0");
+      break;
+    case 'admin/employee_edit':
+      $data['employee'] = $base->get_one("SELECT u.*,ui.* FROM tbl_user u inner join tbl_user_info ui on ui.id = u.id where u.id = $id");
+      $data['branch'] = $base->get_list("select * from tbl_branch where deleted_flag = 0");
+      $data['gender'] = $base->get_list("select * from tbl_gender where deleted_flag = 0");
+      $data['access'] = $base->get_list("select * from tbl_access where id in(2,3,4) and deleted_flag = 0");
+      break;
+    case 'admin/client_edit':
+      $data['branch'] = $base->get_one("select * from tbl_branch where id = $id");
+      break;
+    case 'admin/branch_edit':
+      $data['branch'] = $base->get_one("select * from tbl_branch where id = $id");
+      break;
+    case 'admin/plan_edit':
+      $data['plan'] = $base->get_one("select * from tbl_plan where id = $id");
+      break;
+    case 'admin/equipment_edit':
+      $data['equipment'] = $base->get_one("select * from tbl_equipment where id = $id");
+      break;
+    case 'admin/supplement_edit':
+      $data['supplement'] = $base->get_one("select * from tbl_supplements where id = $id");
+      break;
+    case 'admin/workout_edit':
+      $data['workout'] = $base->get_one("select * from tbl_workout where id = $id");
+      break;
   }
   echo get_contents(page_url($page), $data);
   die;

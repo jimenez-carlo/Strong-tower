@@ -23,10 +23,9 @@
                     <td><?php echo $res['sets']; ?></td>
                     <td><?php echo $res['duration']; ?></td>
                     <td>
-                      <form method="post" name="update_user">
-                        <button type="button" class="btn btn-sm btn-dark btn-edit" name="user_edit" value="<?php echo $res['id']; ?>"> Edit <i class="fa fa-edit"></i> </button>
-                        <input type="hidden" value="<?php echo $res['id']; ?>" name="user_id">
-                        <button type="submit" class="btn btn-sm btn-dark" name="type" value="delete_user"> Delete <i class="fa fa-trash"></i> </button>
+                      <form method="post" name="update_workout">
+                        <button type="button" class="btn btn-sm btn-dark btn-edit" name="admin/workout_edit" value="<?php echo $res['id']; ?>"> Edit <i class="fa fa-edit"></i> </button>
+                        <button type="submit" class="btn btn-sm btn-dark" name="delete" value="<?php echo $res['id']; ?>"> Delete <i class="fa fa-trash"></i> </button>
                       </form>
                     </td>
                   </tr>
@@ -55,7 +54,7 @@
               className: 'btn btn-sm btn-dark',
               text: '<i class="fa fa-plus"></i> New Workout',
               action: function(e, dt, node, config) {
-                $("#content").load(base_url + 'page.php?page=plan_add');
+                $("#content").load(base_url + 'page.php?page=admin/workout_add');
               }
             }]
           });

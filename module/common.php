@@ -34,6 +34,26 @@ if (!function_exists('get_access')) {
           'admin/equipments',
           'admin/supplements',
           'admin/workouts',
+
+          'admin/client_add',
+          'admin/trainer_add',
+          'admin/employee_add',
+          'admin/branch_add',
+          'admin/plan_add',
+          'admin/equipment_add',
+          'admin/supplement_add',
+          'admin/workout_add',
+
+          'admin/client_edit',
+          'admin/trainer_edit',
+          'admin/employee_edit',
+          'admin/branch_edit',
+          'admin/plan_edit',
+          'admin/equipment_edit',
+          'admin/supplement_edit',
+          'admin/workout_edit',
+
+
         );
 
 
@@ -47,6 +67,7 @@ if (!function_exists('page_url')) {
   function page_url($page)
   {
     switch ($page) {
+        // Links
       case 'admin/clients':
         return 'layout/admin-page/content/client/index.php';
       case 'admin/trainers':
@@ -63,6 +84,45 @@ if (!function_exists('page_url')) {
         return 'layout/admin-page/content/supplement/index.php';
       case 'admin/workouts':
         return 'layout/admin-page/content/workout/index.php';
+
+        // Add
+      case 'admin/client_add':
+        return 'layout/admin-page/content/client/create.php';
+      case 'admin/trainer_add':
+        return 'layout/admin-page/content/trainer/create.php';
+      case 'admin/employee_add':
+        return 'layout/admin-page/content/employee/create.php';
+      case 'admin/branch_add':
+        return 'layout/admin-page/content/branch/create.php';
+      case 'admin/plan_add':
+        return 'layout/admin-page/content/plan/create.php';
+      case 'admin/equipment_add':
+        return 'layout/admin-page/content/equipment/create.php';
+      case 'admin/supplement_add':
+        return 'layout/admin-page/content/supplement/create.php';
+      case 'admin/workout_add':
+        return 'layout/admin-page/content/workout/create.php';
+
+        // Edit
+      case 'admin/client_edit':
+        return 'layout/admin-page/content/client/edit.php';
+      case 'admin/trainer_edit':
+        return 'layout/admin-page/content/trainer/edit.php';
+      case 'admin/employee_edit':
+        return 'layout/admin-page/content/employee/edit.php';
+      case 'admin/branch_edit':
+        return 'layout/admin-page/content/branch/edit.php';
+      case 'admin/plan_edit':
+        return 'layout/admin-page/content/plan/edit.php';
+      case 'admin/equipment_edit':
+        return 'layout/admin-page/content/equipment/edit.php';
+      case 'admin/supplement_edit':
+        return 'layout/admin-page/content/supplement/edit.php';
+      case 'admin/workout_edit':
+        return 'layout/admin-page/content/workout/edit.php';
+
+
+
       case 'denied':
         return 'layout/access_denied.php';
       default:

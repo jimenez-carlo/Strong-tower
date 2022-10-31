@@ -20,7 +20,7 @@ $(document).on("click", '.btn-edit, .btn-view', function () {
   var id = $(this).attr('value');
   
   $(".result").html('');
-  $("#content").load(base_url + 'module/page.php?page=' + page + '&id=' + id);
+  $("#content").load(base_url + 'page.php?page=' + page + '&id=' + id);
   
 });
 
@@ -36,7 +36,6 @@ $(document).on("submit", 'form', function (e) {
   }
   
   formdata = new FormData(this);
-  console.log(form_name);
   formdata.append('form', form_name);
   formdata.append(type, type_value);
 
@@ -53,64 +52,95 @@ $(document).on("submit", 'form', function (e) {
         $(form_raw).trigger('reset');
       }
       if (result.status == true) {
-       if (form_name == 'update_user' && type_value == 'delete_user') {
-         $( "#content" ).load( base_url+'module/page.php?page=users' );
+       if (form_name == 'create_branch') {
+         $( "#content" ).load( base_url+'page.php?page=admin/branch_add' );
        }
+       if (form_name == 'update_branch' && formdata.get('delete') == null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/branch_edit&id='+formdata.get('id') );
+        }
+       if (form_name == 'update_branch' && formdata.get('delete') != null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/branches');
+        }
+        
+       if (form_name == 'create_plan') {
+         $( "#content" ).load( base_url+'page.php?page=admin/plan_add' );
+       }
+       if (form_name == 'update_plan' && formdata.get('delete') == null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/plan_edit&id='+formdata.get('id') );
+        }
+       if (form_name == 'update_plan' && formdata.get('delete') != null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/plans');
+        }
+        
+       if (form_name == 'create_equipment') {
+         $( "#content" ).load( base_url+'page.php?page=admin/equipment_add' );
+       }
+       if (form_name == 'update_equipment' && formdata.get('delete') == null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/equipment_edit&id='+formdata.get('id') );
+        }
+       if (form_name == 'update_equipment' && formdata.get('delete') != null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/equipments');
+        }
+        
+       if (form_name == 'create_workout') {
+         $( "#content" ).load( base_url+'page.php?page=admin/workout_add' );
+       }
+       if (form_name == 'update_workout' && formdata.get('delete') == null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/workout_edit&id='+formdata.get('id') );
+        }
+       if (form_name == 'update_workout' && formdata.get('delete') != null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/workouts');
+        }
+
+        if (form_name == 'create_supplement') {
+         $( "#content" ).load( base_url+'page.php?page=admin/supplement_add' );
+       }
+       if (form_name == 'update_supplement' && formdata.get('delete') == null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/supplement_edit&id='+formdata.get('id') );
+        }
+       if (form_name == 'update_supplement' && formdata.get('delete') != null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/supplements');
+        }
+
+        if (form_name == 'create_client') {
+         $( "#content" ).load( base_url+'page.php?page=admin/client_add' );
+       }
+       if (form_name == 'update_client' && formdata.get('delete') == null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/client_edit&id='+formdata.get('id') );
+        }
+       if (form_name == 'update_client' && formdata.get('delete') != null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/clients');
+        }
+        
+        if (form_name == 'create_trainer') {
+         $( "#content" ).load( base_url+'page.php?page=admin/trainer_add' );
+       }
+       if (form_name == 'update_trainer' && formdata.get('delete') == null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/trainer_edit&id='+formdata.get('id') );
+        }
+       if (form_name == 'update_trainer' && formdata.get('delete') != null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/trainers');
+        }
+        
+        if (form_name == 'create_employee') {
+         $( "#content" ).load( base_url+'page.php?page=admin/employee_add' );
+       }
+       if (form_name == 'update_employee' && formdata.get('delete') == null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/employee_edit&id='+formdata.get('id') );
+        }
+       if (form_name == 'update_employee' && formdata.get('delete') != null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/employees');
+        }
+        
+
+        
        if (form_name == 'update_user' && type_value == 'update' && formdata.get('access') == null) {
-         $( "#content" ).load( base_url+'module/page.php?page=customer_edit&id=' +formdata.get('user_id'));
+         $( "#content" ).load( base_url+'page.php?page=customer_edit&id=' +formdata.get('user_id'));
        }
        if (form_name == 'update_user' && type_value == 'update' && formdata.get('access')) {
-         $( "#content" ).load( base_url+'module/page.php?page=user_edit&id=' +formdata.get('user_id'));
+         $( "#content" ).load( base_url+'page.php?page=user_edit&id=' +formdata.get('user_id'));
        }
-       if (form_name == 'update_user' && type_value == 'delete_customer') {
-         $( "#content" ).load( base_url+'module/page.php?page=customers' );
-       }
-       if (form_name == 'remove_from_cart' || form_name == 'update_cart' || form_name == 'checkout_cart') {
-         $( "#content" ).load( base_url+'module/page.php?page=cart' );
-        }
-        
-       if (form_name == 'update_transaction' && type_value == '5') {
-         $( "#content" ).load( base_url+'module/page.php?page=customer_orders' );
-        }
-       if (form_name == 'update_transaction' && (type_value == '3' || type_value == '6')) {
-         $( "#content" ).load( base_url+'module/page.php?page=transactions' );
-        }
-       if (form_name == 'update_transaction_view' && (type_value == '3' || type_value == '6')) {
-         $( "#content" ).load( base_url+'module/page.php?page=transaction_view&id=' +formdata.get('id'));
-        }
-        
-        if (form_name == 'update_order' && (type_value == '3' || type_value == '6')) {
-         $( "#content" ).load( base_url+'module/page.php?page=orders' );
-        }
-       if (form_name == 'update_orders_view' && (type_value == '3' || type_value == '6')) {
-         $( "#content" ).load( base_url+'module/page.php?page=orders_view&id=' +formdata.get('id'));
-        }
-       if (form_name == 'update_order_transaction' && (type_value == '3' || type_value == '6')) {
-         $( "#content" ).load( base_url+'module/page.php?page=orders_view&id=' +formdata.get('invoice_id'));
-        }
-        
-       if (form_name == 'update_category' && type_value == 'delete') {
-         $( "#content" ).load( base_url+'module/page.php?page=categories' );
-        }
-        if (form_name == 'update_category' && type_value == 'update') {
-         $( "#content" ).load( base_url+'module/page.php?page=category_edit&id='+formdata.get('category_id') );
-        }
-        
-       if (form_name == 'add_product') {
-         $('#preview').attr('src','images/products/default.png');
-       }
-       if (form_name == 'update_product' && type_value == 'delete') {
-         $( "#content" ).load( base_url+'module/page.php?page=products' );
-       }
-       if (form_name == 'update_product' && type_value == 're_stock_list') {
-         $( "#content" ).load( base_url+'module/page.php?page=inventory' );
-       }
-       if (form_name == 'update_product' && type_value == 're_stock') {
-         $( "#content" ).load( base_url+'module/page.php?page=inventory_edit&id='+formdata.get('product_id') );
-        }
-       if (form_name == 'update_product' && type_value == 'update') {
-         $( "#content" ).load( base_url+'module/page.php?page=product_edit&id='+formdata.get('product_id') );
-        }
+ 
       }
       if (result.items != '') {
         errorFields(result.items);

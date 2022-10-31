@@ -80,7 +80,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar elevation-4 sidebar-dark-danger">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
+      <a href="#" class="brand-link">
         <img src="assets/logo.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Strong Tower Gym</span>
       </a>

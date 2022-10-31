@@ -4,11 +4,9 @@
 class Base
 {
   private $conn;
-  private $conn_failed;
   public function __construct($db)
   {
     $this->conn = $db;
-    $this->conn_failed = $db;
   }
 
 
