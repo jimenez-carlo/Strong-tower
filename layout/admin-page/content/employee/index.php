@@ -7,6 +7,7 @@
               <thead>
                 <tr>
                   <th>ID#</th>
+                  <th>Type</th>
                   <th>Branch</th>
                   <th>Username</th>
                   <th>Email</th>
@@ -20,6 +21,7 @@
                 <?php foreach ($data['users'] as $res) { ?>
                   <tr>
                     <td><?php echo $res['id']; ?></td>
+                    <td><?php echo strtoupper($res['access']); ?></td>
                     <td><?php echo ucfirst($res['branch']); ?></td>
                     <td><?php echo $res['username']; ?></td>
                     <td><?php echo $res['email']; ?></td>
