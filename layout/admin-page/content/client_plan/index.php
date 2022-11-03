@@ -10,6 +10,7 @@
                   <th>Plan</th>
                   <th>Branch</th>
                   <th>Client Name</th>
+                  <th>Trainer Name</th>
                   <th>Email</th>
                   <th>Gender</th>
                   <th>Contact</th>
@@ -22,7 +23,8 @@
                     <td><?php echo $res['id']; ?></td>
                     <td><?php echo strtoupper($res['plan']); ?></td>
                     <td><?php echo ucfirst($res['branch']); ?></td>
-                    <td><?php echo ucwords($res['first_name'] . ' ' . $res['last_name']); ?></td>
+                    <td><?php echo ucwords($res['first_name'] . ' ' . $res['middle_name'][0] . '. ' . $res['last_name']); ?></td>
+                    <td><?php echo ucwords($res['t_first_name'] . ' ' . $res['t_middle_name'][0] . '. ' . $res['t_last_name']); ?></td>
                     <td><?php echo $res['email']; ?></td>
                     <td><?php echo strtoupper($res['gender']); ?></td>
                     <td><?php echo $res['contact_no']; ?></td>
