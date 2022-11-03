@@ -97,6 +97,10 @@ class Client_plan extends Base
 
     $this->start_transaction();
     try {
+      $old_client_id = $this->get_one("SELECT id from tbl_user where client_plan_id = $id")->id;
+      if ($old_client_id != $client) {
+        $this->query("UPDATE tbl_user set plan_expiration_date = null,client_plan_id = 0 where id = '$old_client_id'");
+      }
       $this->query("UPDATE tbl_client_plan set `client_id` = '$client', `plan_id` = '$plan',`trainer_id`='$trainer',`expiration_date`='$expiration_date' where id = $id");
       $this->query("UPDATE tbl_user set plan_expiration_date = '$expiration_date',client_plan_id = $id where id = '$client'");
       $this->query("DELETE FROM tbl_workout_plan where client_plan_id = $id");

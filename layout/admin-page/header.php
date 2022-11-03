@@ -131,7 +131,7 @@
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link btn-side" name="admin/client_plans">
-                <i class="fa fa-users nav-icon"></i>
+                <i class="fa fa-clipboard nav-icon"></i>
                 <p>Client Plans</p>
               </a>
             </li>
