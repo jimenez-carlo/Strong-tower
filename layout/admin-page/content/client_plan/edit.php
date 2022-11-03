@@ -92,7 +92,7 @@
                       <div class="input-group">
                         <select name="workout[]" class="form-control">
                           <?php foreach ($data['workout'] as $subres) { ?>
-                            <option value="<?= $subres['id']; ?>" <?php echo ($res['workout_id'] == $res['id']) ? 'selected' : ''; ?>> <?= strtoupper($subres['name'] . ' - ' . $subres['sets'] . '. ' . $subres['reps'] . ' - ' . $subres['duration']); ?> </option>
+                            <option value="<?= $subres['id']; ?>" <?php echo ($res['workout_id'] == $res['id']) ? 'selected' : ''; ?>> <?= strtoupper($subres['name'] . ' - ' . $subres['reps'] . ' Reps - ' . $subres['sets'] . ' Sets - ' . $subres['duration'] . ' Duration'); ?> </option>
                           <?php } ?>
                         </select>
                         <span class="input-group-append"> <button type="button" class="btn btn-dark btn-remove-workout"> Remove </button> </span>
@@ -125,7 +125,7 @@
 
     $(add_button).click(function(e) {
       e.preventDefault();
-      $(wrapper).append('<div class="row"> <div class="col-sm-12"> <div class="form-group"> <label>Workout</label><div class="input-group"> <select name = "workout[]" class="form-control"><?php foreach ($data['workout'] as $res) { ?> <option value="<?= $res['id']; ?>" > <?= strtoupper($res['name'] . ' - ' . $res['sets'] . '. ' . $res['reps'] . ' - ' . $res['duration']); ?> </option><?php } ?> </select> <span class="input-group-append"> <button type ="button" class="btn btn-dark btn-remove-workout" > Remove </button> </span></div> </div></div>');
+      $(wrapper).append('<div class="row"> <div class="col-sm-12"> <div class="form-group"> <label>Workout</label><div class="input-group"> <select name = "workout[]" class="form-control"><?php foreach ($data['workout'] as $res) { ?> <option value="<?= $res['id']; ?>" > <?= strtoupper($res['name'] . ' - ' . $res['reps'] . ' Reps - ' . $res['sets'] . ' Sets - ' . $res['duration'] . ' Duration'); ?> </option><?php } ?> </select> <span class="input-group-append"> <button type ="button" class="btn btn-dark btn-remove-workout" > Remove </button> </span></div> </div></div>');
     });
 
     $(wrapper).on("click", ".btn-remove-workout", function(e) {

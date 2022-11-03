@@ -36,7 +36,7 @@
               <textarea class="form-control" rows="4" id="duration" name="duration" placeholder="Workout Duration"><?= $default->duration ?></textarea>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-dark float-right"><i class="fa fa-arrow-up"></i> Update</button>
+              <button type="submit" class="btn btn-dark float-right"><i class="fa fa-save"></i> Update</button>
             </div>
           </div>
         </div>

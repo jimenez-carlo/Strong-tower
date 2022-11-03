@@ -116,7 +116,7 @@
             </div>
 
             <div class="form-group">
-              <button type="submit" class="btn btn-dark float-right"><i class="fa fa-arrow-up"></i> Update</button>
+              <button type="submit" class="btn btn-dark float-right"><i class="fa fa-save"></i> Update</button>
             </div>
           </form>
         </div>
@@ -137,10 +137,16 @@
             <input type="hidden" name="id" value="<?= $default->id ?>">
 
             <div class="row">
-              <div class="col-sm-12">
+              <div class="col-sm-6">
                 <div class="form-group">
                   <label>Plan</label>
                   <input type="text" class="form-control" value="<?= $default->name ?>" disabled>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Expiration Date</label>
+                  <input type="text" class="form-control" value="<?= $default->plan_expiration_date ?>" disabled>
                 </div>
               </div>
             </div>
@@ -171,6 +177,33 @@
               </div>
             </div>
 
+            <div class="row">
+              <div class="col-sm-12">
+                <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
+                  <thead>
+                    <tr>
+                      <th>Workout</th>
+                      <th>Reps</th>
+                      <th>Sets</th>
+                      <th>Duration</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php if (!empty($data['client_workout'])) { ?>
+                      <?php foreach ($data['client_workout'] as $res) { ?>
+                        <tr>
+                          <td><?php echo ucfirst($res['name']); ?></td>
+                          <td><?php echo $res['reps']; ?></td>
+                          <td><?php echo $res['sets']; ?></td>
+                          <td><?php echo ucfirst($res['duration']); ?></td>
+                        </tr>
+                      <?php } ?>
+                    <?php } ?>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </form>
         </div>
       </div>

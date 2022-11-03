@@ -114,7 +114,7 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-dark float-right"><i class="fa fa-plus"></i> Register Employee</button>
+                      <button type="submit" class="btn btn-dark float-right"><i class="fa fa-save"></i> Register Employee</button>
                     </div>
                   </div>
                 </div>

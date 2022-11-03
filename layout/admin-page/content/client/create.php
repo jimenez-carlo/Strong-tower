@@ -111,7 +111,7 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-dark float-right"><i class="fa fa-plus"></i> Register Client</button>
+                      <button type="submit" class="btn btn-dark float-right"><i class="fa fa-save"></i> Register Client</button>
                     </div>
                   </div>
                 </div>

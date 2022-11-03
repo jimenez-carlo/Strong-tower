@@ -34,7 +34,7 @@
                       <textarea class="form-control" rows="4" id="description" name="description" placeholder="Branch Description"></textarea>
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-dark float-right"><i class="fa fa-plus"></i> Create Plan</button>
+                      <button type="submit" class="btn btn-dark float-right"><i class="fa fa-save"></i> Create Plan</button>
                     </div>
                   </div>
                 </div>

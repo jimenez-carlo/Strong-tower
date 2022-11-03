@@ -135,12 +135,6 @@
                 <p>Client Plans</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link btn-side" name="admin/branches">
-                <i class="fa fa-store nav-icon"></i>
-                <p>Branches</p>
-              </a>
-            </li>
 
             <li class="nav-item">
               <a href="#" class="nav-link btn-side" name="admin/plans">
@@ -153,6 +147,12 @@
               <a href="#" class="nav-link btn-side" name="admin/workouts">
                 <i class="fa fa-hand-rock nav-icon"></i>
                 <p>Workouts</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link btn-side" name="admin/branches">
+                <i class="fa fa-store nav-icon"></i>
+                <p>Branches</p>
               </a>
             </li>
 

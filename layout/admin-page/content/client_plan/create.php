@@ -92,7 +92,7 @@
                       <button type="button" class="btn btn-dark" id="add_workout">
                         <i class="fas fa-plus"></i> Add Workout
                       </button>
-                      <button type="submit" class="btn btn-dark float-right"><i class="fa fa-plus"></i> Assign Client Plan</button>
+                      <button type="submit" class="btn btn-dark float-right"><i class="fa fa-save"></i> Assign Client Plan</button>
                     </div>
                   </div>
                 </div>
@@ -108,7 +108,7 @@
 
             $(add_button).click(function(e) {
               e.preventDefault();
-              $(wrapper).append('<div class="row"> <div class="col-sm-12"> <div class="form-group"> <label>Workout</label><div class="input-group"> <select name = "workout[]" class="form-control"><?php foreach ($data['workout'] as $res) { ?> <option value="<?= $res['id']; ?>" > <?= strtoupper($res['name'] . ' - ' . $res['sets'] . '. ' . $res['reps'] . ' - ' . $res['duration']); ?> </option><?php } ?> </select> <span class="input-group-append"> <button type ="button" class="btn btn-dark btn-remove-workout" > Remove </button> </span></div> </div></div>');
+              $(wrapper).append('<div class="row"> <div class="col-sm-12"> <div class="form-group"> <label>Workout</label><div class="input-group"> <select name = "workout[]" class="form-control"><?php foreach ($data['workout'] as $res) { ?> <option value="<?= $res['id']; ?>" > <?= strtoupper($res['name'] . ' - ' . $res['reps'] . ' Reps - ' . $res['sets'] . ' Sets - ' . $res['duration'] . ' Duration'); ?> </option><?php } ?> </select> <span class="input-group-append"> <button type ="button" class="btn btn-dark btn-remove-workout" > Remove </button> </span></div> </div></div>');
             });
 
             $(wrapper).on("click", ".btn-remove-workout", function(e) {

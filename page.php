@@ -59,6 +59,7 @@ if (in_array($page, $pages)) {
     case 'admin/trainer_add':
     case 'admin/client_add':
     case 'admin/employee_add':
+      $data['branch'] = $base->get_list("select * from tbl_branch where deleted_flag = 0");
       $data['gender'] = $base->get_list("select * from tbl_gender where deleted_flag = 0");
       $data['access'] = $base->get_list("select * from tbl_access where id in(2,3,4) and deleted_flag = 0");
       break;
@@ -66,6 +67,11 @@ if (in_array($page, $pages)) {
       $data['client'] = $base->get_one("SELECT tp.*,u.*,ui.* FROM tbl_user u inner join tbl_user_info ui on ui.id = u.id left join tbl_client_plan tc on tc.id = u.client_plan_id left join tbl_plan tp on tp.id = tc.plan_id where u.id = $id");
       $data['branch'] = $base->get_list("select * from tbl_branch where deleted_flag = 0");
       $data['gender'] = $base->get_list("select * from tbl_gender where deleted_flag = 0");
+      $client_plan_id = $data['client']->client_plan_id;
+      $data['client_workout'] = null;
+      if (!empty($client_plan_id)) {
+        $data['client_workout'] = $base->get_list("SELECT w.* from tbl_workout_plan wp inner join tbl_workout w on w.id = wp.workout_id where wp.client_plan_id = $client_plan_id");
+      }
       break;
     case 'admin/trainer_edit':
       $data['trainer'] = $base->get_one("SELECT u.*,ui.* FROM tbl_user u inner join tbl_user_info ui on ui.id = u.id where u.id = $id");

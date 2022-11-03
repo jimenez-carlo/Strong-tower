@@ -34,7 +34,7 @@
                       <textarea class="form-control" rows="4" id="duration" name="duration" placeholder="Workout Duration"></textarea>
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-dark float-right"><i class="fa fa-plus"></i> Add Workout</button>
+                      <button type="submit" class="btn btn-dark float-right"><i class="fa fa-save"></i> Add Workout</button>
                     </div>
                   </div>
                 </div>
