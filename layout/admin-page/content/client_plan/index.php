@@ -1,6 +1,6 @@
         <div class="row mb-2">
           <div class="col-sm-12">
-            <h1 class="m-0"><i class="fa fa-users"></i> Clients Plans</h1>
+            <h1 class="m-0"><i class="fa fa-users"></i> Client Plans</h1>
           </div><!-- /.col -->
           <div class="col-sm-12">
             <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
@@ -58,7 +58,7 @@
             dom: '<"top"<"left-col"B><"center-col"><"right-col"f>> <"row"<"col-sm-12"tr>><"row"<"col-sm-10"li><"col-sm-2"p>>',
             buttons: [{
               className: 'btn btn-sm btn-dark',
-              text: '<i class="fa fa-plus"></i> Assign Client Plan',
+              text: '<i class="fa fa-plus"></i> Add Client Plan',
               action: function(e, dt, node, config) {
                 $("#content").load(base_url + 'page.php?page=admin/client_plan_add');
               }

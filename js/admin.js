@@ -132,6 +132,16 @@ $(document).on("submit", 'form', function (e) {
          $( "#content" ).load( base_url+'page.php?page=admin/employees');
         }
         
+        if (form_name == 'create_client_plan') {
+         $( "#content" ).load( base_url+'page.php?page=admin/client_plan_add' );
+       }
+       if (form_name == 'update_client_plan' && formdata.get('delete') == null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/client_plan_edit&id='+formdata.get('id') );
+        }
+       if (form_name == 'update_client_plan' && formdata.get('delete') != null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/client_plans');
+        }
+        
 
         
        if (form_name == 'update_user' && type_value == 'update' && formdata.get('access') == null) {
