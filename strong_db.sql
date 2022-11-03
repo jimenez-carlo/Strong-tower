@@ -104,6 +104,36 @@ INSERT INTO `tbl_branch` VALUES (1,'branch 1','branch 1','2022-10-07 21:31:07','
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tbl_client_plan`
+--
+
+DROP TABLE IF EXISTS `tbl_client_plan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_client_plan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `client_id` int(11) DEFAULT NULL,
+  `plan_id` int(11) DEFAULT NULL,
+  `trainer_id` int(11) DEFAULT NULL,
+  `expiration_date` date DEFAULT NULL,
+  `created_date` datetime DEFAULT current_timestamp(),
+  `updated_date` datetime DEFAULT current_timestamp(),
+  `deleted_flag` tinyint(4) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_client_plan`
+--
+
+LOCK TABLES `tbl_client_plan` WRITE;
+/*!40000 ALTER TABLE `tbl_client_plan` DISABLE KEYS */;
+INSERT INTO `tbl_client_plan` VALUES (1,5,1,3,'2022-01-01','2022-11-03 19:05:24','2022-11-03 19:05:24',0);
+/*!40000 ALTER TABLE `tbl_client_plan` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tbl_equipment`
 --
 
@@ -315,12 +345,14 @@ CREATE TABLE `tbl_user` (
   `password` varchar(255) DEFAULT NULL,
   `branch_id` int(11) DEFAULT NULL,
   `access_id` int(11) DEFAULT NULL,
+  `client_plan_id` int(11) DEFAULT 0,
+  `plan_expiration_date` date DEFAULT NULL,
   `verified` tinyint(4) DEFAULT 0,
   `created_date` datetime DEFAULT current_timestamp(),
   `updated_date` datetime DEFAULT current_timestamp(),
   `deleted_flag` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -329,7 +361,7 @@ CREATE TABLE `tbl_user` (
 
 LOCK TABLES `tbl_user` WRITE;
 /*!40000 ALTER TABLE `tbl_user` DISABLE KEYS */;
-INSERT INTO `tbl_user` VALUES (1,'admin','admin@gmail.com','123',1,1,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(2,'manager','manager@gmail.com','123',1,2,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(3,'trainer','trainer@gmail.com','123',1,3,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(4,'staff','staff@gmail.com','123',1,4,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(5,'customer','customer@gmail.com','123',1,5,1,'2022-10-07 21:29:59','2022-10-07 21:29:59',0),(8,'test','test@gmail.com','test',1,3,0,'2022-11-01 02:53:59','2022-11-01 02:53:59',0),(9,'test123','test123@gmail.com','123',1,2,0,'2022-11-01 03:04:25','2022-11-01 03:04:25',0),(10,'jimenez31396','test23@gmail.com','123',1,2,0,'2022-11-01 03:08:01','2022-11-01 03:08:01',0);
+INSERT INTO `tbl_user` VALUES (1,'admin','admin@gmail.com','123',1,1,NULL,NULL,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(2,'manager','manager@gmail.com','123',1,2,NULL,NULL,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(3,'trainer','trainer@gmail.com','123',1,3,NULL,NULL,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(4,'staff','staff@gmail.com','123',1,4,NULL,NULL,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(5,'customer','customer@gmail.com','123',1,5,1,'2022-01-01',1,'2022-10-07 21:29:59','2022-10-07 21:29:59',0),(8,'test','test@gmail.com','test',1,3,NULL,NULL,0,'2022-11-01 02:53:59','2022-11-01 02:53:59',0),(9,'test123','test123@gmail.com','123',1,2,NULL,NULL,0,'2022-11-01 03:04:25','2022-11-01 03:04:25',0),(10,'jimenez31396','test23@gmail.com','123',1,2,NULL,NULL,0,'2022-11-01 03:08:01','2022-11-01 03:08:01',0),(11,'customer2','c@gmail.com','123123',2,5,0,NULL,0,'2022-11-03 16:57:10','2022-11-03 16:57:10',0);
 /*!40000 ALTER TABLE `tbl_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -353,7 +385,7 @@ CREATE TABLE `tbl_user_info` (
   `deleted_flag` tinyint(4) DEFAULT 0,
   `address` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -362,7 +394,7 @@ CREATE TABLE `tbl_user_info` (
 
 LOCK TABLES `tbl_user_info` WRITE;
 /*!40000 ALTER TABLE `tbl_user_info` DISABLE KEYS */;
-INSERT INTO `tbl_user_info` VALUES (1,'admin','admin','admin',1,'09000000000','default.jpg','2022-10-07 21:39:28','2022-10-07 21:39:28',0,'admin'),(2,'manager','manager','manager',1,'09000000000','default.jpg','2022-10-07 21:39:28','2022-10-07 21:39:28',0,'manager'),(3,'trainer','trainer','trainer',1,'09000000000','default.jpg','2022-10-07 21:39:28','2022-10-07 21:39:28',0,'trainer'),(4,'staff','staff','staff',1,'09000000000','default.jpg','2022-10-07 21:39:28','2022-10-07 21:39:28',0,'staff'),(5,'customer','customer','customer',1,'09000000000','default.jpg','2022-10-07 21:39:28','2022-10-07 21:39:28',0,'customer'),(8,'test','test','test',1,'09999999999','default.jpg','2022-11-01 02:53:59','2022-11-01 02:53:59',0,'test'),(9,'test','test','test',2,'09999999999','default.jpg','2022-11-01 03:04:25','2022-11-01 03:04:25',0,'test'),(10,'test','test','test',1,'09217635295','default.jpg','2022-11-01 03:08:01','2022-11-01 03:08:01',0,'test');
+INSERT INTO `tbl_user_info` VALUES (1,'admin','admin','admin',1,'09000000000','default.jpg','2022-10-07 21:39:28','2022-10-07 21:39:28',0,'admin'),(2,'manager','manager','manager',1,'09000000000','default.jpg','2022-10-07 21:39:28','2022-10-07 21:39:28',0,'manager'),(3,'trainer','trainer','trainer',1,'09000000000','default.jpg','2022-10-07 21:39:28','2022-10-07 21:39:28',0,'trainer'),(4,'staff','staff','staff',1,'09000000000','default.jpg','2022-10-07 21:39:28','2022-10-07 21:39:28',0,'staff'),(5,'customer','customer','customer',1,'09000000000','default.jpg','2022-10-07 21:39:28','2022-10-07 21:39:28',0,'customer'),(8,'test','test','test',1,'09999999999','default.jpg','2022-11-01 02:53:59','2022-11-01 02:53:59',0,'test'),(9,'test','test','test',2,'09999999999','default.jpg','2022-11-01 03:04:25','2022-11-01 03:04:25',0,'test'),(10,'test','test','test',1,'09217635295','default.jpg','2022-11-01 03:08:01','2022-11-01 03:08:01',0,'test'),(11,'c','c','c',1,'09999999999','default.jpg','2022-11-03 16:57:10','2022-11-03 16:57:10',0,'c');
 /*!40000 ALTER TABLE `tbl_user_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -395,6 +427,34 @@ LOCK TABLES `tbl_workout` WRITE;
 INSERT INTO `tbl_workout` VALUES (1,'Barbel Bench Press',12,3,'None','2022-10-24 04:46:09','2022-10-24 04:46:09',0),(2,'Barbel Inclined Bench Press',12,3,'None','2022-10-24 04:46:09','2022-10-24 04:46:09',0),(3,'Dumbell Flyes',12,3,'None','2022-10-24 04:46:09','2022-10-24 04:46:09',0),(4,'Chest Dips',12,4,'None','2022-10-24 04:46:09','2022-10-24 04:46:09',0),(5,'Chest Dips',12,3,'None','2022-10-24 04:46:48','2022-10-24 04:46:48',0),(6,'Cardio',2,1,'30mins','2022-10-24 04:49:42','2022-10-24 04:49:42',0);
 /*!40000 ALTER TABLE `tbl_workout` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_workout_plan`
+--
+
+DROP TABLE IF EXISTS `tbl_workout_plan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_workout_plan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `client_plan_id` int(11) DEFAULT NULL,
+  `workout_id` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT current_timestamp(),
+  `updated_date` datetime DEFAULT current_timestamp(),
+  `deleted_flag` tinyint(4) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_workout_plan`
+--
+
+LOCK TABLES `tbl_workout_plan` WRITE;
+/*!40000 ALTER TABLE `tbl_workout_plan` DISABLE KEYS */;
+INSERT INTO `tbl_workout_plan` VALUES (8,1,1,'2022-11-03 19:05:24','2022-11-03 19:05:24',0),(9,1,2,'2022-11-03 19:05:24','2022-11-03 19:05:24',0);
+/*!40000 ALTER TABLE `tbl_workout_plan` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -405,4 +465,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-01  3:13:09
+-- Dump completed on 2022-11-03 19:19:07
