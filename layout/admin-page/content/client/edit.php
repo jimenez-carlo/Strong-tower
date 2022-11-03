@@ -4,21 +4,21 @@
     <h1 class="m-0"><i class="fa fa-user"></i> Edit Client #<?= $default->id ?></h1>
   </div><!-- /.col -->
 </div>
-<form method="post" name="update_client">
-  <input type="hidden" name="id" value="<?= $default->id ?>">
-  <section class="content">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card card-secondary">
-          <div class="card-header">
-            <h3 class="card-title">Client Details</h3>
-            <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-              </button>
-            </div>
+<section class="content">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card card-secondary">
+        <div class="card-header">
+          <h3 class="card-title">Client Details</h3>
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
           </div>
-          <div class="card-body">
+        </div>
+        <div class="card-body">
+          <form method="post" name="update_client">
+            <input type="hidden" name="id" value="<?= $default->id ?>">
 
             <div class="row">
               <div class="col-sm-4">
@@ -118,9 +118,62 @@
             <div class="form-group">
               <button type="submit" class="btn btn-dark float-right"><i class="fa fa-arrow-up"></i> Update</button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
-  </section>
-</form>
+    <div class="col-md-6">
+      <div class="card card-secondary">
+        <div class="card-header">
+          <h3 class="card-title">Plan Details</h3>
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <form method="post" name="update_client">
+            <input type="hidden" name="id" value="<?= $default->id ?>">
+
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label>Plan</label>
+                  <input type="text" class="form-control" value="<?= $default->name ?>" disabled>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Session Price</label>
+                  <input type="text" class="form-control" value="<?= $default->per_session ?>" disabled>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Monthly Price</label>
+                  <input type="text" class="form-control" value="<?= $default->per_month ?>" disabled>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea class="form-control" rows="4" disabled><?= $default->description ?></textarea>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

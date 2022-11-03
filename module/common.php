@@ -29,6 +29,7 @@ if (!function_exists('get_access')) {
           'admin/clients',
           'admin/trainers',
           'admin/employees',
+          'admin/client_plans',
           'admin/branches',
           'admin/plans',
           'admin/equipments',
@@ -38,6 +39,7 @@ if (!function_exists('get_access')) {
           'admin/client_add',
           'admin/trainer_add',
           'admin/employee_add',
+          'admin/client_plan_add',
           'admin/branch_add',
           'admin/plan_add',
           'admin/equipment_add',
@@ -47,13 +49,12 @@ if (!function_exists('get_access')) {
           'admin/client_edit',
           'admin/trainer_edit',
           'admin/employee_edit',
+          'admin/client_plan_edit',
           'admin/branch_edit',
           'admin/plan_edit',
           'admin/equipment_edit',
           'admin/supplement_edit',
           'admin/workout_edit',
-
-
         );
 
 
@@ -74,6 +75,8 @@ if (!function_exists('page_url')) {
         return 'layout/admin-page/content/trainer/index.php';
       case 'admin/employees':
         return 'layout/admin-page/content/employee/index.php';
+      case 'admin/client_plans':
+        return 'layout/admin-page/content/client_plan/index.php';
       case 'admin/branches':
         return 'layout/admin-page/content/branch/index.php';
       case 'admin/plans':
@@ -92,6 +95,8 @@ if (!function_exists('page_url')) {
         return 'layout/admin-page/content/trainer/create.php';
       case 'admin/employee_add':
         return 'layout/admin-page/content/employee/create.php';
+      case 'admin/client_plan_add':
+        return 'layout/admin-page/content/client_plan/create.php';
       case 'admin/branch_add':
         return 'layout/admin-page/content/branch/create.php';
       case 'admin/plan_add':
@@ -110,6 +115,8 @@ if (!function_exists('page_url')) {
         return 'layout/admin-page/content/trainer/edit.php';
       case 'admin/employee_edit':
         return 'layout/admin-page/content/employee/edit.php';
+      case 'admin/client_plan_edit':
+        return 'layout/admin-page/content/client_plan/edit.php';
       case 'admin/branch_edit':
         return 'layout/admin-page/content/branch/edit.php';
       case 'admin/plan_edit':

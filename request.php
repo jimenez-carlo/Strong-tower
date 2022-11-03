@@ -10,6 +10,7 @@ require_once('class/plan.php');
 require_once('class/equipment.php');
 require_once('class/workout.php');
 require_once('class/supplement.php');
+require_once('class/client_plan.php');
 require_once('module/common.php');
 
 $base = new Base($conn);
@@ -31,6 +32,7 @@ $supplement = new Supplement($conn);
 $client = new Client($conn);
 $trainer = new Trainer($conn);
 $employee = new Employee($conn);
+$client_plan = new Client_plan($conn);
 
 switch ($form) {
     // Admin Page
@@ -89,6 +91,14 @@ switch ($form) {
   case 'update_supplement':
     $result = $supplement->update();
     break;
+
+  case 'create_client_plan':
+    $result = $client_plan->create();
+    break;
+  case 'update_client_plan':
+    $result = $client_plan->update();
+    break;
+
     // Landing Page
   case 'landing_signup':
     $result = $base->response_landing_obj();

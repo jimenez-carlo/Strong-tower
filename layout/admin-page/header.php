@@ -130,6 +130,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="#" class="nav-link btn-side" name="admin/client_plans">
+                <i class="fa fa-users nav-icon"></i>
+                <p>Client Plans</p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="#" class="nav-link btn-side" name="admin/branches">
                 <i class="fa fa-store nav-icon"></i>
                 <p>Branches</p>
