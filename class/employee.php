@@ -114,7 +114,7 @@ class Employee extends Base
       $new_password = $password;
     }
 
-    $check_user_name = $this->get_one("SELECT if(max(b.id) is null, 0, max(b.id) + 1) as `res` from tbl_user b where b.name ='$username' and id <> $id  and deleted_flag = 0 limit 1");
+    $check_user_name = $this->get_one("SELECT if(max(b.id) is null, 0, max(b.id) + 1) as `res` from tbl_user b where b.username ='$username' and id <> $id  and deleted_flag = 0 limit 1");
 
     if (!empty($check_user_name->res)) {
       $msg .= "Username Already In-use!";
