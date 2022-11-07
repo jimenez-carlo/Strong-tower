@@ -115,6 +115,41 @@
               </div>
             </div>
 
+            <div class="row">
+              <div class="col-sm-12">
+                <h3>Plan History</h3>
+                <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Plan</th>
+                      <th>Trainer</th>
+                      <!-- <th>Email</th> -->
+                      <th>Contact No#</th>
+                      <th>Created Date</th>
+                      <th>Expiration Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php if (!empty($data['plans'])) { ?>
+                      <?php foreach ($data['plans'] as $res) { ?>
+                        <tr>
+                          <td><?php echo $res['id']; ?></td>
+                          <td><?php echo $res['plan_name']; ?></td>
+                          <td><?php echo ucwords($res['first_name'] . ' ' . $res['last_name']); ?></td>
+                          <!-- <td><?php echo $res['email']; ?></td> -->
+                          <td><?php echo $res['contact_no']; ?></td>
+                          <td><?php echo $res['created_date']; ?></td>
+                          <td><?php echo $res['expiration_date']; ?></td>
+                        </tr>
+                      <?php } ?>
+                    <?php } ?>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
             <div class="form-group">
               <button type="submit" class="btn btn-dark float-right"><i class="fa fa-save"></i> Update</button>
             </div>

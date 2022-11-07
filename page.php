@@ -48,7 +48,9 @@ if (in_array($page, $pages)) {
     case 'admin/workouts':
       $data['workouts'] = $base->get_list("select * from tbl_workout where deleted_flag = 0");
       break;
-
+    case 'admin/services':
+      $data['supplements'] = $base->get_list("select * from tbl_services where deleted_flag = 0");
+      break;
     case 'admin/client_plan_add':
       $data['trainer'] = $base->get_list("select b.name as `branch`,g.name as `gender`,UPPER(a.name) as 'access',ui.*,u.* from tbl_user u inner join tbl_user_info ui on ui.id = u.id inner join tbl_access a on a.id = u.access_id inner join tbl_gender g on g.id = ui.gender_id inner join tbl_branch b on b.id = u.branch_id where u.access_id = 3 and u.deleted_flag = 0");
       $data['client'] = $base->get_list("select b.name as `branch`,g.name as `gender`,UPPER(a.name) as 'access',ui.*,u.* from tbl_user u inner join tbl_user_info ui on ui.id = u.id inner join tbl_access a on a.id = u.access_id inner join tbl_gender g on g.id = ui.gender_id inner join tbl_branch b on b.id = u.branch_id where u.access_id = 5 and u.deleted_flag = 0 and  (u.client_plan_id = 0 OR u.client_plan_id = null OR CURDATE() > u.plan_expiration_date OR  u.plan_expiration_date is null)");
@@ -67,6 +69,7 @@ if (in_array($page, $pages)) {
       $data['client'] = $base->get_one("SELECT tp.*,u.*,ui.*,if(u.plan_expiration_date>curdate(),u.plan_expiration_date, null )  as `plan_expiration_date`,if(u.plan_expiration_date>curdate(),u.client_plan_id, 0 )  as `client_plan_id` FROM tbl_user u inner join tbl_user_info ui on ui.id = u.id left join tbl_client_plan tc on (tc.id = u.client_plan_id and u.plan_expiration_date > curdate()) left join tbl_plan tp on tp.id = tc.plan_id where u.id = $id");
       $data['branch'] = $base->get_list("select * from tbl_branch where deleted_flag = 0");
       $data['gender'] = $base->get_list("select * from tbl_gender where deleted_flag = 0");
+      $data['plans'] = $base->get_list("select b.name as `branch`,g.name as `gender`,ui.*,u.*,upper(tp.name) as `plan_name`,tcp.expiration_date,DATE(tcp.created_date) as `created_date` from tbl_user u inner join tbl_user_info ui on ui.id = u.id  inner join tbl_gender g on g.id = ui.gender_id inner join tbl_branch b on b.id = u.branch_id inner join tbl_client_plan tcp on tcp.trainer_id = u.id  inner join tbl_plan tp on tp.id = tcp.plan_id where  u.deleted_flag = 0 and tcp.client_id = $id");
       $client_plan_id = $data['client']->client_plan_id;
       $data['client_workout'] = null;
       if (!empty($client_plan_id)) {
@@ -77,6 +80,8 @@ if (in_array($page, $pages)) {
       $data['trainer'] = $base->get_one("SELECT u.*,ui.* FROM tbl_user u inner join tbl_user_info ui on ui.id = u.id where u.id = $id");
       $data['branch'] = $base->get_list("select * from tbl_branch where deleted_flag = 0");
       $data['gender'] = $base->get_list("select * from tbl_gender where deleted_flag = 0");
+      $data['clients'] = $base->get_list("select b.name as `branch`,g.name as `gender`,ui.*,u.* from tbl_user u inner join tbl_user_info ui on ui.id = u.id  inner join tbl_gender g on g.id = ui.gender_id inner join tbl_branch b on b.id = u.branch_id inner join tbl_client_plan tcp on tcp.client_id = u.id where u.access_id = 5 and u.deleted_flag = 0 and tcp.trainer_id = $id");
+
       break;
     case 'admin/client_plan_edit':
       $data['client_plan'] = $base->get_one("SELECT * from tbl_client_plan where id = $id");
@@ -100,6 +105,11 @@ if (in_array($page, $pages)) {
     case 'admin/branch_edit':
       $data['branch'] = $base->get_one("select * from tbl_branch where id = $id");
       break;
+
+    case 'admin/service_edit':
+      $data['service'] = $base->get_one("select * from tbl_services where id = $id");
+      break;
+
     case 'admin/plan_edit':
       $data['plan'] = $base->get_one("select * from tbl_plan where id = $id");
       break;

@@ -149,12 +149,6 @@
                 <p>Workouts</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link btn-side" name="admin/branches">
-                <i class="fa fa-store nav-icon"></i>
-                <p>Branches</p>
-              </a>
-            </li>
 
             <li class="nav-item">
               <a href="#" class="nav-link btn-side" name="admin/equipments">
@@ -170,6 +164,20 @@
               </a>
             </li>
 
+
+            <li class="nav-item">
+              <a href="#" class="nav-link btn-side" name="admin/services">
+                <i class="fa fa-handshake nav-icon"></i>
+                <p>Services</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link btn-side" name="admin/branches">
+                <i class="fa fa-store nav-icon"></i>
+                <p>Branches</p>
+              </a>
+            </li>
 
             <!-- <li class="nav-item">
               <a href="#" class="nav-link btn-side">

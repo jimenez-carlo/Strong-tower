@@ -35,6 +35,7 @@ if (!function_exists('get_access')) {
           'admin/equipments',
           'admin/supplements',
           'admin/workouts',
+          'admin/services',
 
           'admin/client_add',
           'admin/trainer_add',
@@ -45,6 +46,7 @@ if (!function_exists('get_access')) {
           'admin/equipment_add',
           'admin/supplement_add',
           'admin/workout_add',
+          'admin/services_add',
 
           'admin/client_edit',
           'admin/trainer_edit',
@@ -55,6 +57,7 @@ if (!function_exists('get_access')) {
           'admin/equipment_edit',
           'admin/supplement_edit',
           'admin/workout_edit',
+          'admin/service_edit',
         );
 
 
@@ -87,6 +90,8 @@ if (!function_exists('page_url')) {
         return 'layout/admin-page/content/supplement/index.php';
       case 'admin/workouts':
         return 'layout/admin-page/content/workout/index.php';
+      case 'admin/services':
+        return 'layout/admin-page/content/services/index.php';
 
         // Add
       case 'admin/client_add':
@@ -107,6 +112,8 @@ if (!function_exists('page_url')) {
         return 'layout/admin-page/content/supplement/create.php';
       case 'admin/workout_add':
         return 'layout/admin-page/content/workout/create.php';
+      case 'admin/services_add':
+        return 'layout/admin-page/content/services/create.php';
 
         // Edit
       case 'admin/client_edit':
@@ -127,6 +134,8 @@ if (!function_exists('page_url')) {
         return 'layout/admin-page/content/supplement/edit.php';
       case 'admin/workout_edit':
         return 'layout/admin-page/content/workout/edit.php';
+      case 'admin/service_edit':
+        return 'layout/admin-page/content/services/edit.php';
 
 
 

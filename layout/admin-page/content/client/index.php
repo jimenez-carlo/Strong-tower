@@ -7,6 +7,7 @@
               <thead>
                 <tr>
                   <th>ID#</th>
+                  <th>Status</th>
                   <th>Branch</th>
                   <th>Username</th>
                   <th>Email</th>
@@ -20,6 +21,7 @@
                 <?php foreach ($data['users'] as $res) { ?>
                   <tr>
                     <td><?php echo $res['id']; ?></td>
+                    <td><?php echo ($res['verified']) ? 'VERIFIED' : 'PENDING'; ?></td>
                     <td><?php echo ucfirst($res['branch']); ?></td>
                     <td><?php echo $res['username']; ?></td>
                     <td><?php echo $res['email']; ?></td>
@@ -27,17 +29,16 @@
                     <td><?php echo strtoupper($res['gender']); ?></td>
                     <td><?php echo $res['contact_no']; ?></td>
                     <td>
-                      <?php if ($res['access_id'] == 1) { ?>
-                        <button type="button" class="btn btn-sm btn-dark" disabled> Edit <i class="fa fa-edit"></i> </button>
-                        <button type="button" class="btn btn-sm btn-dark" disabled> Delete <i class="fa fa-trash"></i> </button>
+                      <form method="post" name="update_client">
+                        <button type="button" class="btn btn-sm btn-dark btn-edit" name="admin/client_edit" value="<?php echo $res['id']; ?>"> Edit <i class="fa fa-edit"></i> </button>
+                        <?php if (empty($res['verified'])) { ?>
+                          <button type="submit" class="btn btn-sm btn-dark" name="verify" value="<?php echo $res['id']; ?>"> Verify <i class="fa fa-user-check"></i> </button>
+                        <?php } else { ?>
+                          <button type="button" class="btn btn-sm btn-dark" disabled> Verify <i class="fa fa-user-check"></i> </button>
+                        <?php } ?>
+                        <button type="submit" class="btn btn-sm btn-dark" name="delete" value="<?php echo $res['id']; ?>"> Delete <i class="fa fa-trash"></i> </button>
+                      </form>
                     </td>
-                  <?php } else { ?>
-                    <form method="post" name="update_client">
-                      <button type="button" class="btn btn-sm btn-dark btn-edit" name="admin/client_edit" value="<?php echo $res['id']; ?>"> Edit <i class="fa fa-edit"></i> </button>
-                      <button type="submit" class="btn btn-sm btn-dark" name="delete" value="<?php echo $res['id']; ?>"> Delete <i class="fa fa-trash"></i> </button>
-                    </form>
-                    </td>
-                  <?php } ?>
                   </tr>
                 <?php } ?>
 

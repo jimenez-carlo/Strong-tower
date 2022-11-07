@@ -8,7 +8,7 @@
   <input type="hidden" name="id" value="<?= $default->id ?>">
   <section class="content">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-6">
         <div class="card card-secondary">
           <div class="card-header">
             <h3 class="card-title">Trainer Details</h3>
@@ -118,6 +118,51 @@
             <div class="form-group">
               <button type="submit" class="btn btn-dark float-right"><i class="fa fa-save"></i> Update</button>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card card-secondary">
+          <div class="card-header">
+            <h3 class="card-title">Clients</h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <form method="post" name="update_client">
+              <div class="row">
+                <div class="col-sm-12">
+                  <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Client</th>
+                        <th>Gender</th>
+                        <th>Email</th>
+                        <th>Contact No#</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php if (!empty($data['clients'])) { ?>
+                        <?php foreach ($data['clients'] as $res) { ?>
+                          <tr>
+                            <td><?php echo $res['id']; ?></td>
+                            <td><?php echo ucwords($res['first_name'] . ' ' . $res['last_name']); ?></td>
+                            <td><?php echo strtoupper($res['gender']); ?></td>
+                            <td><?php echo $res['email']; ?></td>
+                            <td><?php echo $res['contact_no']; ?></td>
+                          </tr>
+                        <?php } ?>
+                      <?php } ?>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@
     <div id="blog-carousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="w-100" src="assets/landing/backgroud.jpg" alt="Image" style="height:1087px;object-fit:cover">
+          <img class="w-100" src="assets/landing/img4.jpg" alt="Image" style="height:1087px;object-fit:cover;object-position:center">
           <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
             <h3 class="text-white text-capitalize m-0">Gym & Fitness Center</h3>
             <h2 class="display-2 m-0 mt-2 mt-md-4 text-primary font-weight-bold text-capitalize">Strong Tower Gym</h2>
@@ -517,7 +517,7 @@
     <div class="row">
       <div class="col-lg-3 col-md-6 mb-5">
         <div class="card border-0 bg-secondary text-center text-white">
-          <img class="card-img-top" src="assets/landing/team-1.jpg" alt="">
+          <img class="card-img-top" src="assets/landing/img1.jpg" alt="" style="min-height: 290px;object-fit:contain">
           <div class="card-social d-flex align-items-center justify-content-center">
             <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-twitter"></i></a>
             <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -532,7 +532,7 @@
       </div>
       <div class="col-lg-3 col-md-6 mb-5">
         <div class="card border-0 bg-secondary text-center text-white">
-          <img class="card-img-top" src="assets/landing/team-2.jpg" alt="">
+          <img class="card-img-top" src="assets/landing/img2.jpg" alt="" style="min-height: 290px;object-fit:contain">
           <div class="card-social d-flex align-items-center justify-content-center">
             <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-twitter"></i></a>
             <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -547,7 +547,7 @@
       </div>
       <div class="col-lg-3 col-md-6 mb-5">
         <div class="card border-0 bg-secondary text-center text-white">
-          <img class="card-img-top" src="assets/landing/team-3.jpg" alt="">
+          <img class="card-img-top" src="assets/landing/img3.jpg" alt="" style="min-height: 290px;object-fit:contain">
           <div class="card-social d-flex align-items-center justify-content-center">
             <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-twitter"></i></a>
             <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -562,7 +562,7 @@
       </div>
       <div class="col-lg-3 col-md-6 mb-5">
         <div class="card border-0 bg-secondary text-center text-white">
-          <img class="card-img-top" src="assets/landing/team-4.jpg" alt="">
+          <img class="card-img-top" src="assets/landing/team-4.jpg" alt="" style="min-height: 290px;object-fit:contain">
           <div class="card-social d-flex align-items-center justify-content-center">
             <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-twitter"></i></a>
             <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -620,7 +620,7 @@
     </div>
     <div class="row">
       <div class="col-md-6 pb-5">
-        <iframe style="width: 100%; height: 392px;" src="https://www.waze.com/live-map/directions/east-west-bank-urdaneta-city-2macarthur-hwy-0756562838?to=place.w.79036576.790169149.4823600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <iframe style="width: 100%; height: 392px;" src="https://maps.google.com/maps?q=East%20West%20Bank%20-%20Urdaneta%20City&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
       </div>
       <div class="col-md-6 pb-5">
         <div class="contact-form">

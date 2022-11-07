@@ -108,7 +108,7 @@ $(document).on("submit", 'form', function (e) {
        if (form_name == 'update_client' && formdata.get('delete') == null) {
          $( "#content" ).load( base_url+'page.php?page=admin/client_edit&id='+formdata.get('id') );
         }
-       if (form_name == 'update_client' && formdata.get('delete') != null) {
+       if (form_name == 'update_client' && (formdata.get('delete') != null || formdata.get('verify') != null)) {
          $( "#content" ).load( base_url+'page.php?page=admin/clients');
         }
         
@@ -140,6 +140,17 @@ $(document).on("submit", 'form', function (e) {
         }
        if (form_name == 'update_client_plan' && formdata.get('delete') != null) {
          $( "#content" ).load( base_url+'page.php?page=admin/client_plans');
+        }
+        
+                
+        if (form_name == 'create_service') {
+         $( "#content" ).load( base_url+'page.php?page=admin/services_add' );
+       }
+       if (form_name == 'update_service' && formdata.get('delete') == null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/service_edit&id='+formdata.get('id'));
+        }
+               if (form_name == 'update_service' && formdata.get('delete') != null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/services');
         }
         
 

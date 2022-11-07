@@ -81,6 +81,10 @@ class Client extends Base
       return $this->delete($delete);
     }
 
+    if (isset($verify) && !empty($verify)) {
+      return $this->verify($verify);
+    }
+
     $result = $this->response_obj();
     $blank = 0;
     $errors = array();
@@ -160,6 +164,27 @@ class Client extends Base
       $this->commit_transaction();
       $result->status = true;
       $result->result = $this->response_success("Client Deleted Successfully!", 'Successfull!');
+      return $result;
+    } catch (mysqli_sql_exception $exception) {
+      $this->roll_back();
+      $result->result = $this->response_error();
+      return $result;
+    }
+  }
+
+  public function verify($id)
+  {
+    $result = $this->response_obj();
+    $blank = 0;
+    $errors = array();
+    $msg = '';
+
+    $this->start_transaction();
+    try {
+      $this->query("UPDATE tbl_user set `verified` = 1 where id = $id");
+      $this->commit_transaction();
+      $result->status = true;
+      $result->result = $this->response_success("Client Verified Successfully!", 'Successfull!');
       return $result;
     } catch (mysqli_sql_exception $exception) {
       $this->roll_back();

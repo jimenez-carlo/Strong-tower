@@ -25,8 +25,6 @@ if (isset($_SESSION['is_logged_in'])) {
   }
 } else {
   include('layout/landing-page/header.php');
-  $branch = $base->get_list("Select * from tbl_branch where deleted_flag = 0");
-  $gender = $base->get_list("Select * from tbl_gender where deleted_flag = 0");
   include('layout/landing-page/body.php');
   include('layout/landing-page/footer.php');
 }

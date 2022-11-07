@@ -99,7 +99,7 @@ CREATE TABLE `tbl_branch` (
 
 LOCK TABLES `tbl_branch` WRITE;
 /*!40000 ALTER TABLE `tbl_branch` DISABLE KEYS */;
-INSERT INTO `tbl_branch` VALUES (1,'branch 1','branch 1','2022-10-07 21:31:07','2022-10-07 21:31:07',0),(2,'branch 2','branch 2','2022-10-07 21:31:07','2022-10-07 21:31:07',0),(3,'branch 3','branch 3','2022-10-07 21:31:07','2022-10-07 21:31:07',1),(4,'branch 4','branch 4','2022-10-31 21:57:43','2022-10-31 21:57:43',1),(5,'branch 5','branch 5','2022-10-31 22:23:57','2022-10-31 22:23:57',1);
+INSERT INTO `tbl_branch` VALUES (1,'Branch 1','branch 1','2022-10-07 21:31:07','2022-10-07 21:31:07',0),(2,'branch 2','branch 2','2022-10-07 21:31:07','2022-10-07 21:31:07',0),(3,'branch 3','branch 3','2022-10-07 21:31:07','2022-10-07 21:31:07',1),(4,'branch 4','branch 4','2022-10-31 21:57:43','2022-10-31 21:57:43',1),(5,'branch 5','branch 5','2022-10-31 22:23:57','2022-10-31 22:23:57',1);
 /*!40000 ALTER TABLE `tbl_branch` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,7 +158,7 @@ CREATE TABLE `tbl_equipment` (
 
 LOCK TABLES `tbl_equipment` WRITE;
 /*!40000 ALTER TABLE `tbl_equipment` DISABLE KEYS */;
-INSERT INTO `tbl_equipment` VALUES (1,'Treadmills',4,'tests','2022-10-24 04:20:22','2022-10-24 04:20:22',0),(2,'Seated Dip Machine',1,NULL,'2022-10-24 04:20:22','2022-10-24 04:20:22',0),(3,'Chest Press Machine',1,NULL,'2022-10-24 04:20:22','2022-10-24 04:20:22',0),(4,'Bench Press',1,NULL,'2022-10-24 04:20:22','2022-10-24 04:20:22',0),(5,'Incline Bench Press',1,NULL,'2022-10-24 04:20:22','2022-10-24 04:20:22',0),(6,'Decline Bench Press',1,NULL,'2022-10-24 04:20:22','2022-10-24 04:20:22',0),(7,'Preacher Curl Bench',1,NULL,'2022-10-24 04:20:22','2022-10-24 04:20:22',0);
+INSERT INTO `tbl_equipment` VALUES (1,'Treadmill',4,'tests','2022-10-24 04:20:22','2022-10-24 04:20:22',0),(2,'Seated Dip Machine',1,NULL,'2022-10-24 04:20:22','2022-10-24 04:20:22',0),(3,'Chest Press Machine',1,NULL,'2022-10-24 04:20:22','2022-10-24 04:20:22',0),(4,'Bench Press',1,NULL,'2022-10-24 04:20:22','2022-10-24 04:20:22',0),(5,'Incline Bench Press',1,NULL,'2022-10-24 04:20:22','2022-10-24 04:20:22',0),(6,'Decline Bench Press',1,NULL,'2022-10-24 04:20:22','2022-10-24 04:20:22',0),(7,'Preacher Curl Bench',1,NULL,'2022-10-24 04:20:22','2022-10-24 04:20:22',0);
 /*!40000 ALTER TABLE `tbl_equipment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -246,6 +246,35 @@ LOCK TABLES `tbl_progress` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tbl_services`
+--
+
+DROP TABLE IF EXISTS `tbl_services`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_services` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `image` varchar(255) DEFAULT 'default.png',
+  `description` text DEFAULT NULL,
+  `created_date` datetime DEFAULT current_timestamp(),
+  `updated_date` datetime DEFAULT current_timestamp(),
+  `deleted_flag` tinyint(4) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_services`
+--
+
+LOCK TABLES `tbl_services` WRITE;
+/*!40000 ALTER TABLE `tbl_services` DISABLE KEYS */;
+INSERT INTO `tbl_services` VALUES (1,'Zumba','zumba.jpg','Zumba Is A Form Of Fitness Class In Which You Burn Off Calories By Dancing To Different Kinds Of Lively Tunes, Often Latin-American Inspired Such As Salsa, Merengue And Samba, But Also Other Types Of Modern Music Like Hip Hop And Bollywood (Music From The Indian Film Industry).a','2022-11-07 18:02:52','2022-11-07 18:02:52',0),(2,'Taekwondo','taekwondo.jpg','Taekwondo Comes From Three Korean Words, Tae, \"Kick,\" Kwon, \"Fist Or Punch,\" And Do, \"The Art Of.\" That\'s A Pretty Good Description Of This Dynamic Martial Art, Which Involves Acrobatic Kicks And Graceful Punches. Like All Martial Arts, Taekwondo Isn\'t Just Combat — It\'s Also An Art And A Discipline.','2022-11-07 18:02:52','2022-11-07 18:02:52',0),(3,'Muai Thai','muaythai.jpg','Muay Thai Is A Stand-Up Striking Sport, With Two Competitors In The Ring Throwing Punches, Elbows, Knees And Kicks At Each Other. Clinching, Sweeps And Throws Are Also Allowed.','2022-11-07 18:02:52','2022-11-07 18:02:52',0);
+/*!40000 ALTER TABLE `tbl_services` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tbl_status`
 --
 
@@ -290,7 +319,7 @@ CREATE TABLE `tbl_supplements` (
   `updated_date` datetime DEFAULT current_timestamp(),
   `deleted_flag` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -299,36 +328,8 @@ CREATE TABLE `tbl_supplements` (
 
 LOCK TABLES `tbl_supplements` WRITE;
 /*!40000 ALTER TABLE `tbl_supplements` DISABLE KEYS */;
-INSERT INTO `tbl_supplements` VALUES (1,'img1.webp','Prothin Whey Ripped',1,0,'','2022-10-24 04:33:53','2022-10-24 04:33:53',0),(2,'img2.webp','Weider Amino Max 8000',NULL,299,NULL,'2022-10-24 04:33:53','2022-10-24 04:33:53',0),(3,'img3.webp','Creatine Capsules',NULL,164,NULL,'2022-10-24 04:33:53','2022-10-24 04:33:53',0),(4,'img4.webp','MuscleTech Muscle Builder',NULL,1762,NULL,'2022-10-24 04:33:53','2022-10-24 04:33:53',0),(5,'default.png','test',123,23,'test','2022-11-01 01:24:09','2022-11-01 01:24:09',0);
+INSERT INTO `tbl_supplements` VALUES (1,'img1.webp','Prothin Whey Ripped',1,0,'','2022-10-24 04:33:53','2022-10-24 04:33:53',0),(2,'img2.webp','Weider Amino Max 8000',NULL,299,NULL,'2022-10-24 04:33:53','2022-10-24 04:33:53',0),(3,'img3.webp','Creatine Capsules',NULL,164,NULL,'2022-10-24 04:33:53','2022-10-24 04:33:53',0),(4,'img4.webp','MuscleTech Muscle Builder',NULL,1762,NULL,'2022-10-24 04:33:53','2022-10-24 04:33:53',0),(5,'default.png','test',123,23,'test','2022-11-01 01:24:09','2022-11-01 01:24:09',1),(6,'default.png','',0,0,'test','2022-11-07 18:45:12','2022-11-07 18:45:12',0),(7,'default.png','',0,0,'test','2022-11-07 18:45:16','2022-11-07 18:45:16',0),(8,'default.png','',0,0,'test','2022-11-07 18:45:21','2022-11-07 18:45:21',0),(9,'default.png','',0,0,'test','2022-11-07 18:45:24','2022-11-07 18:45:24',0);
 /*!40000 ALTER TABLE `tbl_supplements` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tbl_trainer_plan`
---
-
-DROP TABLE IF EXISTS `tbl_trainer_plan`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbl_trainer_plan` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `created_date` datetime DEFAULT current_timestamp(),
-  `updated_date` datetime DEFAULT current_timestamp(),
-  `deleted_flag` tinyint(4) DEFAULT 0,
-  `user_id` int(11) DEFAULT NULL,
-  `branch_id` int(11) DEFAULT NULL,
-  `plan_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tbl_trainer_plan`
---
-
-LOCK TABLES `tbl_trainer_plan` WRITE;
-/*!40000 ALTER TABLE `tbl_trainer_plan` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tbl_trainer_plan` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -361,7 +362,7 @@ CREATE TABLE `tbl_user` (
 
 LOCK TABLES `tbl_user` WRITE;
 /*!40000 ALTER TABLE `tbl_user` DISABLE KEYS */;
-INSERT INTO `tbl_user` VALUES (1,'admin','admin@gmail.com','123',1,1,NULL,NULL,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(2,'manager','manager@gmail.com','123',1,2,NULL,NULL,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(3,'trainer','trainer@gmail.com','123',1,3,NULL,NULL,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(4,'staff','staff@gmail.com','123',1,4,NULL,NULL,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(5,'customer','customer@gmail.com','123',1,5,1,'2022-01-01',1,'2022-10-07 21:29:59','2022-10-07 21:29:59',0),(8,'test','test@gmail.com','test',1,3,NULL,NULL,0,'2022-11-01 02:53:59','2022-11-01 02:53:59',0),(9,'test123','test123@gmail.com','123',1,2,NULL,NULL,0,'2022-11-01 03:04:25','2022-11-01 03:04:25',0),(10,'jimenez31396','test23@gmail.com','123',1,2,NULL,NULL,0,'2022-11-01 03:08:01','2022-11-01 03:08:01',0),(11,'customer2','c@gmail.com','123123',2,5,0,NULL,0,'2022-11-03 16:57:10','2022-11-03 16:57:10',0);
+INSERT INTO `tbl_user` VALUES (1,'admin','admin@gmail.com','123',1,1,NULL,NULL,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(2,'manager','manager@gmail.com','123',1,2,NULL,NULL,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(3,'trainer','trainer@gmail.com','123',1,3,NULL,NULL,1,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(4,'staff','staff@gmail.com','123',1,4,NULL,NULL,0,'2022-10-07 21:25:06','2022-10-07 21:25:06',0),(5,'customer','customer@gmail.com','123',1,5,1,'2023-01-01',1,'2022-10-07 21:29:59','2022-10-07 21:29:59',0),(8,'test','test@gmail.com','test',2,3,NULL,NULL,0,'2022-11-01 02:53:59','2022-11-01 02:53:59',0),(9,'test123','test123@gmail.com','123',1,2,NULL,NULL,0,'2022-11-01 03:04:25','2022-11-01 03:04:25',0),(10,'jimenez31396','test23@gmail.com','123',1,2,NULL,NULL,0,'2022-11-01 03:08:01','2022-11-01 03:08:01',0),(11,'customer2','c@gmail.com','123123',2,5,0,NULL,1,'2022-11-03 16:57:10','2022-11-03 16:57:10',0);
 /*!40000 ALTER TABLE `tbl_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -443,7 +444,7 @@ CREATE TABLE `tbl_workout_plan` (
   `updated_date` datetime DEFAULT current_timestamp(),
   `deleted_flag` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -452,7 +453,7 @@ CREATE TABLE `tbl_workout_plan` (
 
 LOCK TABLES `tbl_workout_plan` WRITE;
 /*!40000 ALTER TABLE `tbl_workout_plan` DISABLE KEYS */;
-INSERT INTO `tbl_workout_plan` VALUES (8,1,1,'2022-11-03 19:05:24','2022-11-03 19:05:24',0),(9,1,2,'2022-11-03 19:05:24','2022-11-03 19:05:24',0);
+INSERT INTO `tbl_workout_plan` VALUES (26,1,1,'2022-11-03 22:54:54','2022-11-03 22:54:54',0),(27,1,1,'2022-11-03 22:54:54','2022-11-03 22:54:54',0),(28,1,1,'2022-11-03 22:54:54','2022-11-03 22:54:54',0),(29,1,1,'2022-11-03 22:54:54','2022-11-03 22:54:54',0);
 /*!40000 ALTER TABLE `tbl_workout_plan` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -465,4 +466,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-03 19:19:07
+-- Dump completed on 2022-11-07 19:19:38
