@@ -3,9 +3,9 @@
       <div class="row pt-5">
         <div class="col-lg-3 col-md-6 mb-5">
           <h4 class="text-primary mb-4">Get In Touch</h4>
-          <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
-          <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
-          <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+          <p><i class="fa fa-map-marker-alt mr-2"></i>3rd floor SP North Building (EastWestBank), Urdaneta, Philippines, 2400</p>
+          <p><i class="fa fa-phone-alt mr-2"></i>+639083403181</p>
+          <p><i class="fa fa-envelope mr-2"></i>strongtower@gmail.com</p>
           <div class="d-flex justify-content-start mt-4">
             <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-twitter"></i></a>
             <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -35,10 +35,10 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-5">
           <h4 class="text-primary mb-4">Opening Hours</h4>
-          <h5 class="text-white">Monday - Friday</h5>
-          <p>8.00 AM - 8.00 PM</p>
-          <h5 class="text-white">Saturday - Sunday</h5>
-          <p>2.00 PM - 8.00 PM</p>
+          <h5 class="text-white">Monday - Saturday</h5>
+          <p>7 AM - 8.30 PM</p>
+          <h5 class="text-white">Sunday</h5>
+          <p>1 PM - 8.00 PM</p>
         </div>
       </div>
       <div class="container border-top border-dark pt-5">
