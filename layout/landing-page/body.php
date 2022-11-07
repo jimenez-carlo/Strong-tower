@@ -4,7 +4,7 @@
     <div id="blog-carousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="w-100" src="assets/landing/img4.jpg" alt="Image" style="height:1087px;object-fit:cover;object-position:center">
+          <img class="w-100" src="assets/landing/backgroud.jpg" alt="Image" style="height:1087px;object-fit:cover">
           <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
             <h3 class="text-white text-capitalize m-0">Gym & Fitness Center</h3>
             <h2 class="display-2 m-0 mt-2 mt-md-4 text-primary font-weight-bold text-capitalize">Strong Tower Gym</h2>
