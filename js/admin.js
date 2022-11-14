@@ -162,6 +162,10 @@ $(document).on("submit", 'form', function (e) {
          $( "#content" ).load( base_url+'page.php?page=user_edit&id=' +formdata.get('user_id'));
        }
  
+               if (form_name == 'update_trainer_client' && formdata.get('delete') == null) {
+         $( "#content" ).load( base_url+'page.php?page=admin/trainer_client_edit&id='+formdata.get('id') );
+        }
+        
       }
       if (result.items != '') {
         errorFields(result.items);

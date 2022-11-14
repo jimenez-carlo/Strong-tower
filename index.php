@@ -9,16 +9,11 @@ if (!isset($_SESSION['base_url'])) {
 if (isset($_SESSION['is_logged_in'])) {
   if (in_array($_SESSION['user']->access_id, array(5))) {
     // Customer
-    include('layout/customer-page/header.php');
-    include('layout/customer-page/body.php');
-    include('layout/customer-page/footer.php');
-  } else if (in_array($_SESSION['user']->access_id, array(2, 3, 4))) {
-    // Trainer,Staff,Manager
-    include('layout/customer-page/header.php');
-    include('layout/customer-page/body.php');
-    include('layout/customer-page/footer.php');
-  } else {
-    // admin
+    include('layout/client-page/header.php');
+    include('layout/client-page/body.php');
+    include('layout/client-page/footer.php');
+  } else if (in_array($_SESSION['user']->access_id, array(1, 2, 3, 4))) {
+    // Admin,Trainer,Staff,Manager
     include('layout/admin-page/header.php');
     include('layout/admin-page/body.php');
     include('layout/admin-page/footer.php');

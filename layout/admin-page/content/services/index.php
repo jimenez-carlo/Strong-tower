@@ -9,7 +9,9 @@
                   <th>ID#</th>
                   <th>Image</th>
                   <th>Service name</th>
-                  <th>Actions</th>
+                  <?php if (in_array($_SESSION['user']->access_id, array(1, 2))) { ?>
+                    <th>Actions</th>
+                  <?php } ?>
                 </tr>
               </thead>
               <tbody>
@@ -18,12 +20,14 @@
                     <td><?php echo $res['id']; ?></td>
                     <td><img src="assets/services/<?php echo $res['image']; ?>" style="width:100px;height:100px;object-fit:contain"></td>
                     <td><?php echo ucfirst($res['name']); ?></td>
-                    <td>
-                      <form method="post" name="update_service">
-                        <button type="button" class="btn btn-sm btn-dark btn-edit" name="admin/service_edit" value="<?php echo $res['id']; ?>"> Edit <i class="fa fa-edit"></i> </button>
-                        <button type="submit" class="btn btn-sm btn-dark" name="delete" value="<?php echo $res['id']; ?>"> Delete <i class="fa fa-trash"></i> </button>
-                      </form>
-                    </td>
+                    <?php if (in_array($_SESSION['user']->access_id, array(1, 2))) { ?>
+                      <td>
+                        <form method="post" name="update_service">
+                          <button type="button" class="btn btn-sm btn-dark btn-edit" name="admin/service_edit" value="<?php echo $res['id']; ?>"> Edit <i class="fa fa-edit"></i> </button>
+                          <button type="submit" class="btn btn-sm btn-dark" name="delete" value="<?php echo $res['id']; ?>"> Delete <i class="fa fa-trash"></i> </button>
+                        </form>
+                      </td>
+                    <?php } ?>
                   </tr>
                 <?php } ?>
 
@@ -46,12 +50,16 @@
             "autoWidth": false,
             "responsive": true,
             dom: '<"top"<"left-col"B><"center-col"><"right-col"f>> <"row"<"col-sm-12"tr>><"row"<"col-sm-10"li><"col-sm-2"p>>',
-            buttons: [{
-              className: 'btn btn-sm btn-dark',
-              text: '<i class="fa fa-plus"></i> Add Service',
-              action: function(e, dt, node, config) {
-                $("#content").load(base_url + 'page.php?page=admin/services_add');
-              }
-            }]
+            buttons: [
+
+              <?php if (in_array($_SESSION['user']->access_id, array(1, 2))) { ?> {
+                  className: 'btn btn-sm btn-dark',
+                  text: '<i class="fa fa-plus"></i> Add Service',
+                  action: function(e, dt, node, config) {
+                    $("#content").load(base_url + 'page.php?page=admin/services_add');
+                  }
+                }
+              <?php } ?>
+            ]
           });
         </script>

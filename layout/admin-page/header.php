@@ -104,80 +104,111 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+            <?php switch ($_SESSION['user']->access_id) {
+              case 1: ?>
+                <!-- Super Admin -->
+                <li class="nav-item"><a href="." class="nav-link btn-side active"><i class="fa fa-home nav-icon"></i>
+                    <p>Home</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/clients"><i class="fa fa-users nav-icon"></i>
+                    <p>Clients</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/trainers"><i class="fa fa-users nav-icon"></i>
+                    <p>Trainers</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/employees"><i class="fa fa-users nav-icon"></i>
+                    <p>Employees</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/client_plans"><i class="fa fa-clipboard nav-icon"></i>
+                    <p>Client Plans</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/plans"><i class="fa fa-clipboard nav-icon"></i>
+                    <p>Membership Plans</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/workouts"><i class="fa fa-hand-rock nav-icon"></i>
+                    <p>Workouts</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/equipments"><i class="fa fa-dumbbell nav-icon"></i>
+                    <p>Equipments</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/supplements"><i class="fa fa-pills nav-icon"></i>
+                    <p>Supplements</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/services"><i class="fa fa-handshake nav-icon"></i>
+                    <p>Services</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/branches"><i class="fa fa-store nav-icon"></i>
+                    <p>Branches</p>
+                  </a></li>
+                <?php break; ?>
+              <?php
+              case 2: ?>
+                <!-- Manager -->
+                <li class="nav-item"><a href="." class="nav-link btn-side active"><i class="fa fa-home nav-icon"></i>
+                    <p>Home</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/clients"><i class="fa fa-users nav-icon"></i>
+                    <p>Clients</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/trainers"><i class="fa fa-users nav-icon"></i>
+                    <p>Trainers</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/employees"><i class="fa fa-users nav-icon"></i>
+                    <p>Employees</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/client_plans"><i class="fa fa-clipboard nav-icon"></i>
+                    <p>Client Plans</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/plans"><i class="fa fa-clipboard nav-icon"></i>
+                    <p>Membership Plans</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/workouts"><i class="fa fa-hand-rock nav-icon"></i>
+                    <p>Workouts</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/equipments"><i class="fa fa-dumbbell nav-icon"></i>
+                    <p>Equipments</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/supplements"><i class="fa fa-pills nav-icon"></i>
+                    <p>Supplements</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/services"><i class="fa fa-handshake nav-icon"></i>
+                    <p>Services</p>
+                  </a></li>
 
-            <li class="nav-item">
-              <a href="." class="nav-link btn-side active">
-                <i class="fa fa-home nav-icon"></i>
-                <p>Home</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link btn-side" name="admin/clients">
-                <i class="fa fa-users nav-icon"></i>
-                <p>Clients</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link btn-side" name="admin/trainers">
-                <i class="fa fa-users nav-icon"></i>
-                <p>Trainers</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link btn-side" name="admin/employees">
-                <i class="fa fa-users nav-icon"></i>
-                <p>Employees</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link btn-side" name="admin/client_plans">
-                <i class="fa fa-clipboard nav-icon"></i>
-                <p>Client Plans</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link btn-side" name="admin/plans">
-                <i class="fa fa-clipboard nav-icon"></i>
-                <p>Membership Plans</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link btn-side" name="admin/workouts">
-                <i class="fa fa-hand-rock nav-icon"></i>
-                <p>Workouts</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link btn-side" name="admin/equipments">
-                <i class="fa fa-dumbbell nav-icon"></i>
-                <p>Equipments</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link btn-side" name="admin/supplements">
-                <i class="fa fa-pills nav-icon"></i>
-                <p>Supplements</p>
-              </a>
-            </li>
-
-
-            <li class="nav-item">
-              <a href="#" class="nav-link btn-side" name="admin/services">
-                <i class="fa fa-handshake nav-icon"></i>
-                <p>Services</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link btn-side" name="admin/branches">
-                <i class="fa fa-store nav-icon"></i>
-                <p>Branches</p>
-              </a>
-            </li>
+                <?php break; ?>
+              <?php
+              case 3: ?>
+                <!-- Trainer -->
+                <li class="nav-item"><a href="." class="nav-link btn-side active"><i class="fa fa-home nav-icon"></i>
+                    <p>Home</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/clients"><i class="fa fa-users nav-icon"></i>
+                    <p>Client List</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/trainer_clients"><i class="fa fa-users nav-icon"></i>
+                    <p>My Clients</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/plans"><i class="fa fa-clipboard nav-icon"></i>
+                    <p>Membership Plans</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/workouts"><i class="fa fa-hand-rock nav-icon"></i>
+                    <p>Workouts</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/equipments"><i class="fa fa-dumbbell nav-icon"></i>
+                    <p>Equipments</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/supplements"><i class="fa fa-pills nav-icon"></i>
+                    <p>Supplements</p>
+                  </a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-side" name="admin/services"><i class="fa fa-handshake nav-icon"></i>
+                    <p>Services</p>
+                  </a></li>
+                <?php break; ?>
+              <?php
+              case 4: ?>
+                <!-- Staff -->
+                <?php break; ?>
+            <?php } ?>
 
             <!-- <li class="nav-item">
               <a href="#" class="nav-link btn-side">

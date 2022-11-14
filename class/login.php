@@ -108,7 +108,7 @@ class Login extends Base
     }
 
 
-    $user = $this->get_one("SELECT * from tbl_user u inner join tbl_user_info ui on ui.id = u.id where u.username ='$username' and u.`password`='$password' and u.deleted_flag = 0 limit 1");
+    $user = $this->get_one("SELECT b.name as `branch`,ui.*,u.* from tbl_user u inner join tbl_user_info ui on ui.id = u.id inner join tbl_branch b on b.id = u.branch_id where u.username ='$username' and u.`password`='$password' and u.deleted_flag = 0 limit 1");
     $check_user = $this->get_one("SELECT if(max(u.id) is null, 0, max(u.id) + 1) as `res` from tbl_user u where u.username ='$username' and u.`password`='$password' and u.deleted_flag = 0 limit 1");
 
     if (empty($check_user->res)) {

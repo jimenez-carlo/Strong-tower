@@ -36,11 +36,16 @@
               <div class="col-sm-4">
                 <div class="form-group">
                   <label>Branch</label>
-                  <select id="branch" name="branch" class="form-control">
-                    <?php foreach ($data['branch'] as $res) { ?>
-                      <option value="<?= $res['id']; ?>" <?php echo ($default->branch_id == $res['id']) ? 'selected' : ''; ?>><?= $res['name']; ?></option>
-                    <?php } ?>
-                  </select>
+                  <?php if (in_array($_SESSION['user']->access_id, array(1))) { ?>
+                    <select id="branch" name="branch" class="form-control">
+                      <?php foreach ($data['branch'] as $res) { ?>
+                        <option value="<?= $res['id']; ?>" <?php echo ($default->branch_id == $res['id']) ? 'selected' : ''; ?>><?= $res['name']; ?></option>
+                      <?php } ?>
+                    </select>
+                  <?php } else { ?>
+                    <input type="text" class="form-control" value="<?= $_SESSION['user']->branch ?>" disabled>
+                    <input type="hidden" id="branch" name="branch" value="<?= $_SESSION['user']->branch_id ?>" disabled>
+                  <?php } ?>
                 </div>
               </div>
             </div>

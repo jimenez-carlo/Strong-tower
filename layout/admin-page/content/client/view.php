@@ -1,7 +1,7 @@
 <?php $default = $data['client']; ?>
 <div class="row mb-2">
   <div class="col-sm-12">
-    <h1 class="m-0"><i class="fa fa-user"></i> Edit Client #<?= $default->id ?></h1>
+    <h1 class="m-0"><i class="fa fa-user"></i> View Client #<?= $default->id ?></h1>
   </div><!-- /.col -->
 </div>
 <section class="content">
@@ -24,13 +24,13 @@
               <div class="col-sm-4">
                 <div class="form-group">
                   <label>*Username</label>
-                  <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?= $default->username ?>">
+                  <input type="text" class="form-control" id="username" name="username" placeholder="Username" disabled value="<?= $default->username ?>">
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="form-group">
                   <label>*Email</label>
-                  <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<?= $default->email ?>">
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Email" disabled value="<?= $default->email ?>">
                 </div>
               </div>
               <div class="col-sm-4">
@@ -53,53 +53,8 @@
             <div class="row">
               <div class="col-sm-4">
                 <div class="form-group">
-                  <label>Old Password</label>
-                  <input type="password" class="form-control" id="re_password" name="re_password" placeholder="Old Password">
-                </div>
-              </div>
-
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label>New Password</label>
-                  <input type="password" class="form-control" id="password" name="password" placeholder="New Password">
-                </div>
-              </div>
-
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label>Type</label>
-                  <input type="text" class="form-control" value="Client" disabled>
-                  <input type="hidden" id="access" name="access" value="5">
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label>*First Name</label>
-                  <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" value="<?= $default->first_name ?>">
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label>*Middle Name</label>
-                  <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Middle Name" value="<?= $default->middle_name ?>">
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label>*Last Name</label>
-                  <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" value="<?= $default->last_name ?>">
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="form-group">
                   <label>Gender</label>
-                  <select id="gender" class="form-control custom-select" name="gender">
+                  <select id="gender" class="form-control custom-select" name="gender" disabled>
                     <?php foreach ($data['gender'] as $res) { ?>
                       <option value="<?= $res['id']; ?>" <?php echo ($default->gender_id == $res['id']) ? 'selected' : ''; ?>><?= $res['name']; ?></option>
                     <?php } ?>
@@ -109,13 +64,45 @@
               <div class="col-sm-4">
                 <div class="form-group">
                   <label>*Contact No#</label>
-                  <input type="number" class="form-control" id="contact" name="contact" placeholder="Contact No#" value="<?= $default->contact_no ?>">
+                  <input type="number" class="form-control" id="contact" name="contact" placeholder="Contact No#" value="<?= $default->contact_no ?>" disabled>
+                </div>
+              </div>
+
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Type</label>
+                  <input type="text" class="form-control" value="Client" disabled>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>*First Name</label>
+                  <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" value="<?= $default->first_name ?>" disabled>
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="form-group">
+                  <label>*Middle Name</label>
+                  <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Middle Name" value="<?= $default->middle_name ?>" disabled>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>*Last Name</label>
+                  <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" value="<?= $default->last_name ?>" disabled>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="col-sm-4">
+                <div class="form-group">
                   <label>Address</label>
-                  <textarea class="form-control" rows="4" id="address" name="address" placeholder="Address"><?= $default->address ?></textarea>
+                  <textarea class="form-control" rows="4" id="address" name="address" placeholder="Address" disabled><?= $default->address ?></textarea>
                 </div>
               </div>
             </div>
@@ -156,7 +143,6 @@
             </div>
 
             <div class="form-group">
-              <button type="submit" class="btn btn-dark float-right"><i class="fa fa-save"></i> Update</button>
             </div>
           </form>
         </div>

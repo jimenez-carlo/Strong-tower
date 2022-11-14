@@ -24,7 +24,9 @@ if (!function_exists('get_access')) {
   {
     switch ($access) {
       case 1: //admin
-      case 5: //admin
+      case 2: //manager
+      case 3: //trainer
+      case 4: //staff
         return array(
           'admin/clients',
           'admin/trainers',
@@ -36,6 +38,7 @@ if (!function_exists('get_access')) {
           'admin/supplements',
           'admin/workouts',
           'admin/services',
+          'admin/trainer_clients',
 
           'admin/client_add',
           'admin/trainer_add',
@@ -58,6 +61,10 @@ if (!function_exists('get_access')) {
           'admin/supplement_edit',
           'admin/workout_edit',
           'admin/service_edit',
+          'admin/client_edit',
+          'admin/trainer_client_edit',
+
+          'admin/client_view',
         );
 
 
@@ -92,7 +99,8 @@ if (!function_exists('page_url')) {
         return 'layout/admin-page/content/workout/index.php';
       case 'admin/services':
         return 'layout/admin-page/content/services/index.php';
-
+      case 'admin/trainer_clients':
+        return 'layout/admin-page/content/trainer_client/index.php';
         // Add
       case 'admin/client_add':
         return 'layout/admin-page/content/client/create.php';
@@ -136,7 +144,12 @@ if (!function_exists('page_url')) {
         return 'layout/admin-page/content/workout/edit.php';
       case 'admin/service_edit':
         return 'layout/admin-page/content/services/edit.php';
+      case 'admin/trainer_client_edit':
+        return 'layout/admin-page/content/trainer_client/edit.php';
 
+        // View
+      case 'admin/client_view':
+        return 'layout/admin-page/content/client/view.php';
 
 
       case 'denied':
