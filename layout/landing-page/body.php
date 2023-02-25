@@ -6,7 +6,7 @@
         <div class="carousel-item active">
           <img class="w-100" src="assets/landing/backgroud.jpg" alt="Image" style="height:1087px;object-fit:cover">
           <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-            <h3 class="text-white text-capitalize m-0">Gym & Fitness Center</h3>
+            <h3 class="text-white text-capitalize m-0">Gym & Fitness Centeasdasdr</h3>
             <h2 class="display-2 m-0 mt-2 mt-md-4 text-primary font-weight-bold text-capitalize">Strong Tower Gym</h2>
             <a href="#" class="btn btn-lg btn-outline-light mt-3 mt-md-5 py-md-3 px-md-5" data-toggle="modal" data-target="#register_modal">Join Us Now</a>
           </div>
@@ -14,7 +14,7 @@
         <div class="carousel-item">
           <img class="w-100" src="assets/landing/carousel-1.jpg" alt="Image">
           <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-            <h3 class="text-white text-capitalize m-0">Gym & Fitness Center</h3>
+            <h3 class="text-white text-capitalize m-0">Gym & Fitness Centerasdasdas</h3>
             <h2 class="display-2 m-0 mt-2 mt-md-4 text-primary font-weight-bold text-capitalize">Strong Tower Gym</h2>
             <a href="#" class="btn btn-lg btn-outline-light mt-3 mt-md-5 py-md-3 px-md-5" data-toggle="modal" data-target="#register_modal">Join Us Now</a>
           </div>
